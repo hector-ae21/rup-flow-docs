@@ -76,10 +76,3 @@ Read RUP-FLOW.md and use rup-flow to document this system in docs/rup.
 
 An agent that cannot run commands can still write the documents by following the
 references, but it cannot render or check them; it must say so.
-
-## What is tested
-
-The automated tests check that every target writes its file, keeps the rest of an
-existing file, does not duplicate its block, and that the skill installs into both
-skill folders. What an agent does with the files is up to the agent; report a client
-that ignores them.

@@ -2,7 +2,7 @@
 title: Releases
 description: Choose the correct rup-flow documentation, understand how the free and Pro versions map and trace immutable releases.
 application_line: "1.0"
-validated_application_version: "1.0.0"
+validated_application_version: "1.0.1"
 ---
 
 # Releases

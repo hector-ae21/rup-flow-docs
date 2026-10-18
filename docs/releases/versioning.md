@@ -17,14 +17,14 @@ Four numbers answer four different questions:
 
 ```console
 RUP version
-rup-flow free 1.0.0
+rup-flow free 1.0.1
 
 RUP version
-rup-flow Pro 1.0.0 (built on rup-flow free 1.0.0)
+rup-flow Pro 1.0.1 (built on rup-flow free 1.0.1)
 ```
 
-The same number is in the name of the package, `rup-flow-free-1.0.0.zip` or
-`rup-flow-pro-1.0.0.zip`, and in the `metadata.version` of `SKILL.md`.
+The same number is in the name of the package, `rup-flow-free-1.0.1.zip` or
+`rup-flow-pro-1.0.1.zip`, and in the `metadata.version` of `SKILL.md`.
 
 ## How the editions map
 
@@ -42,7 +42,7 @@ Compatible patches update the same line instead of creating a new copy of the si
 
 ```text
 Edition line:      1.0.x
-Validated version: 1.0.0
+Validated version: 1.0.1
 Version selector:  1.0
 Canonical path:    /rup-flow-docs/1.0/
 ```

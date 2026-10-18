@@ -89,8 +89,8 @@ independently.
 
 ## How Pro is versioned
 
-Pro has its own version, `1.0.0` today, and always states the free version it
-contains: `rup.mjs version` prints `rup-flow Pro 1.0.0 (built on rup-flow free 1.0.0)`.
+Pro has its own version, `1.0.1` today, and always states the free version it
+contains: `rup.mjs version` prints `rup-flow Pro 1.0.1 (built on rup-flow free 1.0.1)`.
 Pages and rows of this site marked <span class="rup-pro-tag">Pro</span> say since
 which Pro version they apply. See [Pro versions and compatibility](versions.md).
 

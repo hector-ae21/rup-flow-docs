@@ -93,8 +93,8 @@ extra:
   documentation_root: *documentation_root
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/hector-ae21/rup-flow
-      name: rup-flow on GitHub
+      link: https://github.com/hector-ae21/rup-flow-docs
+      name: rup-flow documentation on GitHub
   version:
     provider: mike
     default: latest
