@@ -12,14 +12,15 @@ skill and states which one:
 
 ```console
 RUP version
-rup-flow Pro 1.0.0 (built on rup-flow free 1.0.0)
+rup-flow Pro 1.0.1 (built on rup-flow free 1.0.1)
 ```
 
 ## Compatibility
 
 | Pro | Contains free | Documentation line |
 | --- | --- | --- |
-| 1.0.x | 1.0.x | 1.0 |
+| 1.0.1 | 1.0.1 | 1.0 |
+| 1.0.0 | 1.0.0 | 1.0 |
 
 The documentation line is the free edition's `MAJOR.MINOR`; a Pro release is documented
 on the line of the free version it contains. Pages and rows marked
@@ -27,6 +28,12 @@ on the line of the free version it contains. Pages and rows marked
 after Pro 1.0.
 
 ## Pro changelog
+
+### 1.0.1
+
+Built on rup-flow free 1.0.1.
+
+- `init` creates the project root when it does not exist instead of failing with a stack trace.
 
 ### 1.0.0
 

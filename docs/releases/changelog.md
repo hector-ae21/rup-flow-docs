@@ -9,6 +9,12 @@ Changes of the free skill. The format follows [Keep a Changelog](https://keepach
 
 ## Unreleased
 
+## 1.0.1
+
+### Fixed
+
+- `init` creates the project root when it does not exist instead of failing with a stack trace.
+
 ## 1.0.0
 
 First release of the free edition from a clean history. It turns requirements into a basic RUP documentation set with PlantUML diagrams for any coding agent.

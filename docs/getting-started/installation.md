@@ -35,7 +35,7 @@ Unzip so that the folder lands inside the skills folder of your agent.
 === "Claude Code"
 
     ```console
-    unzip rup-flow-free-1.0.0.zip -d ~/.claude/skills
+    unzip rup-flow-free-1.0.1.zip -d ~/.claude/skills
     ```
 
     Use `.claude/skills` inside a project to install it for that project only. Then
@@ -50,7 +50,7 @@ Unzip so that the folder lands inside the skills folder of your agent.
 === "Codex, Gemini CLI and others"
 
     ```console
-    unzip rup-flow-free-1.0.0.zip -d ~/.agents/skills
+    unzip rup-flow-free-1.0.1.zip -d ~/.agents/skills
     ```
 
     Clients that read `.agents/skills` pick it up. Say "Use rup-flow to ...".
@@ -60,13 +60,13 @@ Unzip so that the folder lands inside the skills folder of your agent.
     Every client lists its own skills folder in its documentation. Unzip there:
 
     ```console
-    unzip rup-flow-free-1.0.0.zip -d <skills folder of your client>
+    unzip rup-flow-free-1.0.1.zip -d <skills folder of your client>
     ```
 
 On Windows, use the file manager or `Expand-Archive`:
 
 ```console
-Expand-Archive rup-flow-free-1.0.0.zip -DestinationPath $HOME\.claude\skills
+Expand-Archive rup-flow-free-1.0.1.zip -DestinationPath $HOME\.claude\skills
 ```
 
 ## Agents that read an instruction file
@@ -88,8 +88,8 @@ node <skills folder>/rup-flow/scripts/rup.mjs version
 node <skills folder>/rup-flow/scripts/rup.mjs editions
 ```
 
-`version` prints `rup-flow free 1.0.0` or `rup-flow Pro 1.0.0 (built on rup-flow
-free 1.0.0)`. `editions` lists what the installation includes; the first line says
+`version` prints `rup-flow free 1.0.1` or `rup-flow Pro 1.0.1 (built on rup-flow
+free 1.0.1)`. `editions` lists what the installation includes; the first line says
 `free` or `Pro`.
 
 ## Update

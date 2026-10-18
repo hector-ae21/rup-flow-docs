@@ -29,7 +29,7 @@ way as the free edition ([installation](../getting-started/installation.md)):
 === "Claude Code"
 
     ```console
-    unzip rup-flow-pro-1.0.0.zip -d ~/.claude/skills
+    unzip rup-flow-pro-1.0.1.zip -d ~/.claude/skills
     ```
 
     Copy the files of `rup-flow-pro/agents` to `~/.claude/agents` to enable the
@@ -42,7 +42,7 @@ way as the free edition ([installation](../getting-started/installation.md)):
 === "Codex, Gemini CLI and others"
 
     ```console
-    unzip rup-flow-pro-1.0.0.zip -d ~/.agents/skills
+    unzip rup-flow-pro-1.0.1.zip -d ~/.agents/skills
     ```
 
 === "Instruction-file agents"

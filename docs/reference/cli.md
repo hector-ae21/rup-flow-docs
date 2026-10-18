@@ -144,8 +144,8 @@ RUP version
 RUP editions --json
 ```
 
-`version` prints `rup-flow free 1.0.0`, or for Pro `rup-flow Pro 1.0.0 (built on
-rup-flow free 1.0.0)`. With `--json` it prints the edition and versions as JSON.
+`version` prints `rup-flow free 1.0.1`, or for Pro `rup-flow Pro 1.0.1 (built on
+rup-flow free 1.0.1)`. With `--json` it prints the edition and versions as JSON.
 `editions` prints the catalogue as a checklist of what the installation includes.
 
 ## `server`
