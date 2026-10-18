@@ -1,0 +1,17 @@
+@startuml agent-compatibility
+!include _theme.iuml
+
+rectangle "Reads Agent Skills\nClaude Code, Claude web, Codex,\nGemini CLI and others" as Skills
+rectangle "Reads an instruction file\nCursor, Copilot, Windsurf, Cline,\nRoo, Kilo, Continue, Junie,\nAmazon Q, Zed, Aider" as Files
+rectangle "Any other agent\nwith a shell" as Other
+
+rectangle "Skill folder\n.claude/skills or .agents/skills" as Folder
+rectangle "Instruction block\nwritten by rup.mjs instructions" as Block
+rectangle "CLI\nrup.mjs" as CLI
+
+Skills --> Folder : loads on demand
+Files --> Block : reads
+Other --> Block : portable file RUP-FLOW.md
+Block --> Folder : points to
+Folder --> CLI : scripts/rup.mjs
+@enduml

@@ -1,0 +1,18 @@
+@startuml release-pipeline
+!include _theme.iuml
+
+rectangle "Pull request" as PR
+rectangle "CI\nvalidate, test,\nrender" as CI
+rectangle "Merge" as Merge
+rectangle "Tag" as Tag
+rectangle "Release workflow\ncheck, build, package" as Release
+rectangle "GitHub release\nwith the versioned ZIP" as Asset
+rectangle "Marketplace listing\nand direct buyers" as Market
+
+PR --> CI
+CI --> Merge : CI complete
+Merge --> Tag : version bumped,\nchangelog written
+Tag --> Release
+Release --> Asset
+Asset --> Market : uploaded by hand
+@enduml

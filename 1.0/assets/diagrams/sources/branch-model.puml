@@ -1,0 +1,22 @@
+@startuml branch-model
+!include _theme.iuml
+
+rectangle "Private repository" as Repo {
+  rectangle "main\nfree edition" as Main
+  rectangle "pro\nmain plus the pro/ folder" as Pro
+}
+
+rectangle "Tag vX.Y.Z" as FreeTag
+rectangle "Tag pro-vX.Y.Z" as ProTag
+rectangle "rup-flow-free-X.Y.Z.zip" as FreeZip
+rectangle "rup-flow-pro-X.Y.Z.zip" as ProZip
+rectangle "Documentation site\npublic repository" as Docs
+
+Main --> Pro : merge main into pro
+Main --> FreeTag
+Pro --> ProTag
+FreeTag --> FreeZip : release workflow
+ProTag --> ProZip : release workflow
+FreeZip --> Docs : described, never published as source
+ProZip --> Docs : described at feature level
+@enduml

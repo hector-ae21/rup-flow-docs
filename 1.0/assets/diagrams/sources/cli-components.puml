@@ -1,0 +1,29 @@
+@startuml cli-components
+!include _theme.iuml
+
+package "scripts/rup.mjs" as Main {
+  rectangle "Argument parser" as Args
+  rectangle "Configuration loader\ndefaults, file, flags" as Config
+  rectangle "Commands\ninit, new, index, render, check,\neditions, version, instructions, server" as Commands
+}
+
+package "scripts/lib" as Lib {
+  rectangle "edition.mjs\nedition loader and Pro notices" as Edition
+  rectangle "usecases.mjs\ncards, index, navigation" as UseCases
+  rectangle "plantuml.mjs\nserver client" as Client
+  rectangle "instructions.mjs\nagent instruction blocks" as Instructions
+}
+
+package "scripts/pro (Pro only)" as Pro {
+  rectangle "themes, mermaid, explorer,\nuse-case diagrams, scan" as Extension
+}
+
+Args --> Config
+Config --> Commands
+Commands --> Edition
+Commands --> UseCases
+Commands --> Client
+Commands --> Instructions
+Edition ..> Extension : loads when\nscripts/pro/index.mjs exists
+Commands ..> Extension : calls its hooks
+@enduml

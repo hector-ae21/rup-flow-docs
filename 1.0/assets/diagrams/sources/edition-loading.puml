@@ -1,0 +1,20 @@
+@startuml edition-loading
+!include _theme.iuml
+
+start
+:CLI starts;
+if (scripts/pro/index.mjs exists?) then (yes)
+  :Load the Pro extension;
+  :Pro edition: all templates,\nthemes, Mermaid, explorer, scan;
+else (no)
+  :Free edition;
+  if (command or flag needs Pro?) then (yes)
+    :Stop with the Pro notice,\nexit code 1;
+    stop
+  else (no)
+    :Run;
+  endif
+endif
+:Write the report;
+stop
+@enduml

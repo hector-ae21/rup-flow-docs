@@ -1,0 +1,131 @@
+!ifdef DARK
+!$text = "#E6EEFB"
+!$muted = "#B7C7E2"
+!$box = "#1E3A5F"
+!$boxAlt = "#2F5B94"
+!$border = "#8EC5FF"
+!$arrow = "#8EC5FF"
+!$package = "#122740"
+!$packageBorder = "#4F8FD6"
+!$accent = "#C9DDF2"
+!$note = "#17304F"
+!$noteBorder = "#C9DDF2"
+!else
+!$text = "#122740"
+!$muted = "#3D5F8C"
+!$box = "#EAF2FC"
+!$boxAlt = "#D3E4F8"
+!$border = "#4F8FD6"
+!$arrow = "#35609A"
+!$package = "#F5F8FC"
+!$packageBorder = "#8AAED6"
+!$accent = "#1E3A5F"
+!$note = "#FFF6DB"
+!$noteBorder = "#C9A646"
+!endif
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam roundCorner 12
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+skinparam defaultFontColor $text
+skinparam ArrowColor $arrow
+skinparam ArrowFontColor $muted
+skinparam ArrowFontSize 12
+skinparam ArrowThickness 1.6
+skinparam packageStyle rectangle
+skinparam componentStyle rectangle
+skinparam nodesep 50
+skinparam ranksep 55
+skinparam actor {
+  BackgroundColor $box
+  BorderColor $border
+  FontColor $text
+}
+skinparam usecase {
+  BackgroundColor $box
+  BorderColor $accent
+  FontColor $text
+}
+skinparam component {
+  BackgroundColor $box
+  BorderColor $border
+  FontColor $text
+}
+skinparam rectangle {
+  BackgroundColor $box
+  BorderColor $border
+  FontColor $text
+}
+skinparam package {
+  BackgroundColor $package
+  BorderColor $packageBorder
+  FontColor $text
+}
+skinparam node {
+  BackgroundColor $box
+  BorderColor $border
+  FontColor $text
+}
+skinparam cloud {
+  BackgroundColor $boxAlt
+  BorderColor $border
+  FontColor $text
+}
+skinparam database {
+  BackgroundColor $boxAlt
+  BorderColor $border
+  FontColor $text
+}
+skinparam file {
+  BackgroundColor $box
+  BorderColor $accent
+  FontColor $text
+}
+skinparam class {
+  BackgroundColor $box
+  BorderColor $border
+  HeaderBackgroundColor $boxAlt
+  FontColor $text
+  AttributeFontColor $text
+}
+skinparam sequence {
+  ActorBackgroundColor $box
+  ActorBorderColor $border
+  ActorFontColor $text
+  LifeLineBorderColor $arrow
+  LifeLineBackgroundColor $box
+  ParticipantBackgroundColor $box
+  ParticipantBorderColor $border
+  ParticipantFontColor $text
+  GroupBackgroundColor $package
+  GroupBorderColor $packageBorder
+  GroupFontColor $text
+  BoxBackgroundColor $package
+  BoxBorderColor $packageBorder
+}
+skinparam activity {
+  BackgroundColor $box
+  BorderColor $border
+  FontColor $text
+  DiamondBackgroundColor $boxAlt
+  DiamondBorderColor $accent
+  DiamondFontColor $text
+  StartColor $arrow
+  EndColor $accent
+  BarColor $arrow
+}
+skinparam note {
+  BackgroundColor $note
+  BorderColor $noteBorder
+  FontColor $text
+}
+skinparam state {
+  BackgroundColor $box
+  BorderColor $border
+  FontColor $text
+  StartColor $arrow
+  EndColor $accent
+}
+skinparam ActivityStartColor $arrow
+skinparam ActivityEndColor $accent

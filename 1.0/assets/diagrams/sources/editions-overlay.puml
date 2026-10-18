@@ -1,0 +1,28 @@
+@startuml editions-overlay
+!include _theme.iuml
+
+package "main branch" as Free {
+  rectangle "SKILL.md, references, templates\nthe free workflow" as FreeSkill
+  rectangle "CLI\nloads an extension when present" as FreeCli
+  rectangle "editions.json\nthe catalogue" as Catalogue
+}
+
+package "pro branch: pro/overlay" as Pro {
+  rectangle "scripts/pro\nthemes, Mermaid, explorer,\nuse-case diagrams, scan" as Extension
+  rectangle "Templates and references\nthe full workflow" as ProTemplates
+  rectangle "Packs, domain libraries\nand subagents" as Extras
+}
+
+rectangle "rup-flow-pro package\none skill, both sets" as Package
+rectangle "rup-flow-free package" as FreePackage
+
+FreeSkill --> FreePackage : zip
+FreeCli --> FreePackage : zip
+Catalogue --> FreePackage : zip
+FreeSkill --> Package : copied
+FreeCli --> Package : copied
+Catalogue --> Package : copied
+Extension --> Package : laid over
+ProTemplates --> Package : laid over
+Extras --> Package : added
+@enduml
