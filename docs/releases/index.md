@@ -1,15 +1,16 @@
 ---
 title: Releases
-description: Choose the correct rup-flow documentation, understand compatibility and trace immutable releases.
-application_line: "0.4"
-validated_application_version: "0.4.0"
+description: Choose the correct rup-flow documentation, understand how the free and Pro versions map and trace immutable releases.
+application_line: "1.0"
+validated_application_version: "1.0.0"
 ---
 
 # Releases
 
-This site documents the rup-flow `0.4` release line. The version selector uses
-`MAJOR.MINOR`; exact patches appear in the changelog. Separate immutable tags and
-GitHub releases identify each approved publication of these pages.
+This site documents the rup-flow `1.0` release line: the free edition `1.0.x` and the
+rup-flow Pro releases built on it. The version selector uses `MAJOR.MINOR`; exact patches
+appear in the changelogs. Separate immutable tags and GitHub releases identify each
+approved publication of these pages.
 
 <div class="rup-grid" markdown>
 
@@ -17,7 +18,7 @@ GitHub releases identify each approved publication of these pages.
 
 ## Match a version
 
-Understand skill versions, publication revisions, aliases and stable URLs.
+Understand edition versions, publication revisions, aliases and stable URLs.
 
 [Read versioning and URLs](versioning.md)
 
@@ -27,9 +28,9 @@ Understand skill versions, publication revisions, aliases and stable URLs.
 
 ## Review changes
 
-Find the exact release that introduced a change.
+Find the exact release that introduced a change, free or Pro.
 
-[Read the changelog](changelog.md)
+[Free changelog](changelog.md) · [Pro changelog](../pro/versions.md)
 
 </div>
 
@@ -45,13 +46,13 @@ Move to a new version without losing your documentation.
 
 </div>
 
-## Two editions, two version lines
+## Two editions, two version numbers
 
-| Edition | Version line | Where its changes are recorded |
-| --- | --- | --- |
-| Free | `0.4.x` | [Changelog](changelog.md) |
-| Pro | `1.x`, built on a named free version | The Pro package and its listing |
+| Edition | Version line | Tag | Package |
+| --- | --- | --- | --- |
+| Free | `1.0.x` | `vMAJOR.MINOR.PATCH` | `rup-flow-free-<version>.zip` |
+| Pro | `1.0.x`, built on a named free version | `pro-vMAJOR.MINOR.PATCH` | `rup-flow-pro-<version>.zip` |
 
-This site follows the free edition's line. Pro states the free version it was
-built on, and every Pro page here describes capabilities that exist in that
-build.
+This site follows the free edition's line. A Pro release states the free version it
+contains (`RUP version`), and every Pro page here describes capabilities that exist in
+that build.

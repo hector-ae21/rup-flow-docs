@@ -41,9 +41,9 @@ Start the PlantUML server, render, and read the `check` output.
 
 ## Use another agent
 
-Codex, Gemini CLI, Cursor and GitHub Copilot.
+Codex, Gemini, Cursor, Copilot, Windsurf, Cline and more.
 
-[Read the guide](other-agents.md)
+[See compatible agents](../getting-started/compatible-agents.md)
 
 </div>
 

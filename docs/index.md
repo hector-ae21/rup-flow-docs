@@ -1,5 +1,5 @@
 ---
-title: RUP documentation and code, from your AI coding agent
+title: RUP documentation and code, from any AI coding agent
 description: Turn requirements into RUP documentation with your AI coding agent. The free edition covers the basics; rup-flow Pro covers the whole workflow, in both directions.
 hide:
   - toc
@@ -9,14 +9,15 @@ hide:
 
 <div class="rup-hero-copy" markdown>
 
-<p class="rup-eyebrow">RUP documentation skill · rup-flow 0.4</p>
+<p class="rup-eyebrow">RUP documentation skill · rup-flow 1.0</p>
 
 # Document your system and build it from the same models
 
 <p class="rup-lead">rup-flow teaches your AI coding agent to turn requirements
 into RUP models and diagrams. The free edition covers the first disciplines.
 rup-flow Pro covers the whole workflow, from requirements to code and from
-legacy code back to models, with evidence for every claim.</p>
+legacy code back to models, with evidence for every claim. It works with
+Claude, Codex, Gemini, Cursor, Copilot and any agent with a shell.</p>
 
 <div class="rup-actions" markdown>
 
@@ -26,7 +27,7 @@ legacy code back to models, with evidence for every claim.</p>
 </div>
 
 <div class="rup-pill-row">
-  <span class="rup-pill">Works with the agent you use</span>
+  <span class="rup-pill">Any coding agent</span>
   <span class="rup-pill">Never invents requirements</span>
   <span class="rup-pill">Node.js only</span>
 </div>
@@ -43,14 +44,15 @@ legacy code back to models, with evidence for every claim.</p>
 
 ## One workflow, two editions
 
-<p class="rup-section-intro">The free edition is a complete, working sample. It
-stops where the project gets serious, and tells you so instead of improvising.</p>
+<p class="rup-section-intro">Every page of this site says which edition it
+describes. Pages and rows marked <span class="rup-pro-tag">Pro</span> belong to
+rup-flow Pro; everything else is in the free edition.</p>
 
 <div class="rup-grid" markdown>
 
 <div class="rup-card rup-card--linked" markdown>
 
-### Free
+## Free <span class="rup-free-tag">Free</span>
 
 The simplified domain model, actors, requirements, use cases with their
 specification statechart, analysis classes and open questions, drawn with
@@ -62,9 +64,9 @@ PlantUML. MIT licensed.
 
 <div class="rup-card rup-card--linked" markdown>
 
-### Pro
+## Pro <span class="rup-pro-tag">Pro</span>
 
-The ranked domain model, every diagram type, design, implementation and
+The ranked domain model, fourteen diagram types, design, implementation and
 traceability, code in both directions, themes, Mermaid, the interactive
 explorer, stack packs, domain libraries and subagents.
 
@@ -74,10 +76,10 @@ explorer, stack packs, domain libraries and subagents.
 
 <div class="rup-card rup-card--linked" markdown>
 
-### Compared
+## Compared
 
-Every diagram, document, workflow and tool, marked free or Pro, generated from
-the same catalogue the CLI prints.
+Every diagram, document, workflow and tool, marked free or Pro, from the same
+catalogue the CLI prints.
 
 [Compare the editions](pro/compare.md)
 
@@ -91,16 +93,16 @@ the same catalogue the CLI prints.
 
 <div class="rup-card" markdown>
 
-### Every statement has a provenance
+## Every statement has a provenance
 
-*Confirmed* by you, *assumed* by the agent, or *open* as a question. An
-assumption is never written as a fact.
+*Confirmed* by you, *observed* in code, *assumed* by the agent or *open* as a
+question. An assumption is never written as a fact.
 
 </div>
 
 <div class="rup-card" markdown>
 
-### Unknown rules become questions
+## Unknown rules become questions
 
 Missing business rules go to `open-questions.md` instead of being invented to
 make a document look complete.
@@ -109,7 +111,7 @@ make a document look complete.
 
 <div class="rup-card" markdown>
 
-### The agent says what it did not do
+## The agent says what it did not do
 
 Diagrams are not called rendered or checked unless the render ran and the result
 was looked at. Anything outside your edition is named, not improvised.
@@ -144,8 +146,9 @@ diagrams and checks the result. Open `docs/rup/README.md` and follow the links.
 
 <div class="rup-callout" markdown>
 
-**Current documentation:** this site describes rup-flow `0.4`. Use the version
-selector when you operate another release line so commands and configuration
-match the skill you installed.
+**Current documentation:** this site describes rup-flow `1.0` (free) and rup-flow
+Pro `1.0`. Use the version selector when you operate another release line so
+commands and configuration match the skill you installed.
+[How versions map](releases/versioning.md)
 
 </div>

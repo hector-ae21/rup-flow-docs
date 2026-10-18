@@ -1,11 +1,13 @@
 ---
 title: Install rup-flow
-description: Install the free rup-flow skill in Claude Code, Claude on the web, or any agent that reads Agent Skills.
+description: Install the rup-flow skill, free or Pro, for Claude, Codex, Gemini and any other agent.
 ---
 
 # Install rup-flow
 
-Pick the client you use. All of them install the same skill.
+Both editions are one folder, `rup-flow` (free) or `rup-flow-pro` (Pro), that you
+place where your agent looks for skills. They are the same skill: install one of
+them in a given place, not both.
 
 ## Check the runtime
 
@@ -13,55 +15,85 @@ Pick the client you use. All of them install the same skill.
 node --version
 ```
 
-The skill needs Node.js 18 or newer. Docker is only needed to draw diagrams
-(see [Render and check diagrams](../guides/render-and-check.md)).
+The skill needs Node.js 18 or newer. Docker is only needed to draw diagrams (see
+[Render and check diagrams](../guides/render-and-check.md)).
 
-## Choose your client
+## Get the package
+
+| Edition | File | Where it comes from |
+| --- | --- | --- |
+| <span class="rup-free-tag">Free</span> | `rup-flow-free-<version>.zip` | The marketplace listing of rup-flow (free) |
+| <span class="rup-pro-tag">Pro</span> | `rup-flow-pro-<version>.zip` | The marketplace listing of rup-flow Pro, see [Get Pro](../pro/get-pro.md) |
+
+The version is part of the file name. After installing, `rup.mjs version` prints
+it.
+
+## Put it where your agent looks
+
+Unzip so that the folder lands inside the skills folder of your agent.
 
 === "Claude Code"
 
-    Add the marketplace and install the plugin:
-
     ```console
-    claude plugin marketplace add hector-ae21/rup-flow
-    claude plugin install rup-flow@rup-flow
+    unzip rup-flow-free-1.0.0.zip -d ~/.claude/skills
     ```
 
-    Then say "Use rup-flow to ..." or run `/rup-flow:rup-flow`.
+    Use `.claude/skills` inside a project to install it for that project only. Then
+    say "Use rup-flow to ..." or run `/rup-flow`.
 
 === "Claude on the web"
 
-    1. Download `rup-flow-skill.zip` from the
-       [latest release](https://github.com/hector-ae21/rup-flow/releases/latest).
-    2. In **Customize → Skills**, upload the ZIP.
-
-    The web sandbox cannot reach a PlantUML server on your machine, so diagrams
-    stay as `.puml` sources there; render them locally later.
+    In **Customize → Skills**, upload the ZIP. The web sandbox cannot reach a
+    PlantUML server on your machine, so diagrams stay as `.puml` sources there;
+    render them locally later.
 
 === "Codex, Gemini CLI and others"
 
     ```console
-    git clone https://github.com/hector-ae21/rup-flow
-    cd rup-flow
-    node install.mjs --target agents
+    unzip rup-flow-free-1.0.0.zip -d ~/.agents/skills
     ```
 
-    The skill lands in `.agents/skills/rup-flow` under your home folder. Use
-    `--project <dir>` to install it for one project only.
+    Clients that read `.agents/skills` pick it up. Say "Use rup-flow to ...".
+
+=== "Any other folder"
+
+    Every client lists its own skills folder in its documentation. Unzip there:
+
+    ```console
+    unzip rup-flow-free-1.0.0.zip -d <skills folder of your client>
+    ```
+
+On Windows, use the file manager or `Expand-Archive`:
+
+```console
+Expand-Archive rup-flow-free-1.0.0.zip -DestinationPath $HOME\.claude\skills
+```
+
+## Agents that read an instruction file
+
+Cursor, GitHub Copilot, Windsurf, Cline and many others do not load skills; they
+read an instruction file. After unzipping the skill somewhere in the project, write
+the file the agent reads:
+
+```console
+node .agents/skills/rup-flow/scripts/rup.mjs instructions --target cursor
+```
+
+See [Compatible agents](compatible-agents.md) for every target.
 
 ## Verify the installation
 
-Ask the agent to run the CLI, or run it yourself from the skill folder:
-
 ```console
-node scripts/rup.mjs editions
+node <skills folder>/rup-flow/scripts/rup.mjs version
+node <skills folder>/rup-flow/scripts/rup.mjs editions
 ```
 
-The first line says `this installation: free`. The list below it shows what
-the free edition includes and what is part of Pro.
+`version` prints `rup-flow free 1.0.0` or `rup-flow Pro 1.0.0 (built on rup-flow
+free 1.0.0)`. `editions` lists what the installation includes; the first line says
+`free` or `Pro`.
 
-## Other agents
+## Update
 
-Cursor and GitHub Copilot read instruction files instead of skills. The
-`instructions` command writes the block they need; see
-[Use another agent](../guides/other-agents.md).
+Unzip the new package over the old folder, or replace the folder. Your
+documentation and `rup.config.json` live in your project and are not touched. See
+[Update rup-flow](../releases/updating.md).

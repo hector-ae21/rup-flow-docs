@@ -8,9 +8,10 @@ description: The boundary, control and entity classes of the analysis discipline
 The first software structure derived from the use cases: what the user touches
 (boundary), what coordinates (control) and what holds information (entity).
 
-<div class="rup-diagram rup-diagram--light" role="region" aria-label="Scrollable UML class diagram of the analysis classes" tabindex="0" markdown>
+<div class="rup-diagram" role="region" aria-label="Scrollable UML class diagram of the analysis classes" tabindex="0" markdown>
 
-![Analysis classes of the online shop: a checkout screen, a controller and entities](../assets/diagrams/catalogue/analysis-classes.svg)
+![Analysis classes of the online shop: a checkout screen, a controller and entities](../assets/gallery/light/analysis-classes.svg#only-light)
+![Analysis classes of the online shop: a checkout screen, a controller and entities](../assets/gallery/dark/analysis-classes.svg#only-dark)
 
 </div>
 
@@ -54,9 +55,7 @@ OrderLine --> Product
 - One control class per use case.
 - Entity names are the ones in the domain model.
 
-<div class="rup-callout" markdown>
+!!! pro "In Pro"
 
-**Pro** adds one analysis collaboration per use case, with numbered messages,
-and the analysis card that links it to the requirements and the design.
-
-</div>
+    Pro adds one analysis collaboration per use case, with numbered messages,
+    and the analysis card that links it to the requirements and the design.

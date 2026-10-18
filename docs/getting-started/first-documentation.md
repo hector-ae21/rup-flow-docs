@@ -40,8 +40,7 @@ docs/rup/
 └── 05-quality/        open-questions.md
 ```
 
-Open `docs/rup/README.md` and follow the links. A complete rendered example is
-in the repository: [examples/shop](https://github.com/hector-ae21/rup-flow/tree/main/examples/shop).
+Open `docs/rup/README.md` and follow the links.
 
 ## Check it yourself
 

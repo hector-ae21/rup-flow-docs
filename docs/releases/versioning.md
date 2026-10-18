@@ -1,29 +1,50 @@
 ---
 title: Versioning and URLs
-description: Match a rup-flow skill to its MAJOR.MINOR documentation line and audit immutable publication revisions.
+description: Match a rup-flow package, free or Pro, to its MAJOR.MINOR documentation line and audit immutable publication revisions.
 ---
 
 # Versioning and URLs
 
-Skill versions, documentation lines and publication revisions answer different
-questions:
+Four numbers answer four different questions:
 
-- **Skill version:** which exact release of the skill is installed?
+- **Free version:** which release of the free skill is installed?
+- **Pro version:** which release of rup-flow Pro, and which free version does it contain?
 - **Documentation line:** which compatible `MAJOR.MINOR` contract describes it?
-- **Publication revision:** which approved snapshot of these pages produced the
-  current wording and images?
+- **Publication revision:** which approved snapshot of these pages produced the current
+  wording and images?
+
+## Reading your own version
+
+```console
+RUP version
+rup-flow free 1.0.0
+
+RUP version
+rup-flow Pro 1.0.0 (built on rup-flow free 1.0.0)
+```
+
+The same number is in the name of the package, `rup-flow-free-1.0.0.zip` or
+`rup-flow-pro-1.0.0.zip`, and in the `metadata.version` of `SKILL.md`.
+
+## How the editions map
+
+| Pro | Contains free | Read the docs of line |
+| --- | --- | --- |
+| 1.0.x | 1.0.x | 1.0 |
+
+A Pro release is documented on the line of the free version it contains. Pro pages carry
+the Pro version since which a capability exists, so one site covers both editions.
 
 ## MAJOR.MINOR controls the site
 
-The version selector and the canonical address use the skill's `MAJOR.MINOR`.
-Compatible patches update the same line instead of creating a new copy of the
-site.
+The version selector and the canonical address use the free edition's `MAJOR.MINOR`.
+Compatible patches update the same line instead of creating a new copy of the site.
 
 ```text
-Skill line:        0.4.x
-Validated skill:   0.4.0
-Version selector:  0.4
-Canonical path:    /rup-flow-docs/0.4/
+Edition line:      1.0.x
+Validated version: 1.0.0
+Version selector:  1.0
+Canonical path:    /rup-flow-docs/1.0/
 ```
 
 ## Aliases
@@ -37,15 +58,5 @@ The site root redirects to `latest`.
 
 ## Publication revisions
 
-Each approved publication of these pages gets an immutable tag and a GitHub
-release. A later editorial fix is a new revision in the same line; it never
-rewrites an earlier one.
-
-## Which version do I have?
-
-```console
-node scripts/rup.mjs config
-```
-
-does not print the version; read `metadata.version` in `SKILL.md`, or the
-`version` of the plugin manifest.
+Each approved publication of these pages gets an immutable tag and a GitHub release. A later
+editorial fix is a new revision in the same line; it never rewrites an earlier one.

@@ -1,6 +1,8 @@
 ---
 title: License and support
 description: The terms of rup-flow Pro and how to get help.
+edition: pro
+since: "1.0"
 ---
 
 # License and support
@@ -16,14 +18,13 @@ The free rup-flow skill is MIT licensed. rup-flow Pro is proprietary.
 | Receive the updates published while your license is active | Give your copy or your access to people without a license |
 
 A team needs one license per person. The license ends if you breach it; what you
-already generated stays yours. The full text ships inside the package as
-`LICENSE.md`.
+already generated stays yours. The full text ships inside the package as `LICENSE.md`.
 
 ## Support
 
 - Questions and defects in the documentation:
   [open an issue](https://github.com/hector-ae21/rup-flow-docs/issues).
-- Defects in the free edition: [rup-flow issues](https://github.com/hector-ae21/rup-flow/issues).
+- Defects in the skill, free or Pro: the same issue tracker, saying which edition and version (`RUP version`) you use.
 - Support is best effort and runs through those channels.
 
 Do not paste Pro package content into public issues.

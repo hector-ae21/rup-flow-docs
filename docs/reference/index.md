@@ -1,6 +1,6 @@
 ---
 title: Reference
-description: Exact behaviour of the rup-flow command line, configuration, folder structure, identifiers and provenance marks.
+description: Exact behaviour of the rup-flow command line, configuration, folder structure, identifiers and provenance marks, free and Pro.
 ---
 
 # Reference
@@ -54,6 +54,16 @@ The keys every document carries and the stable IDs.
 Confirmed, observed, assumed and open.
 
 [Read the marks](provenance.md)
+
+</div>
+
+<div class="rup-card rup-card--linked" markdown>
+
+## Free and Pro compared
+
+Every capability, marked free or Pro.
+
+[Read the catalogue](../pro/compare.md)
 
 </div>
 

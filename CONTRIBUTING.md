@@ -13,12 +13,10 @@ procedure easier to follow, a statement more precise or a page easier to find.
 
 ## What to write
 
-- Describe released behaviour of the free edition. Roadmap items are labelled as
-  such.
+- Describe released behaviour of both editions. Roadmap items are labelled as such.
 - Procedures state prerequisites, the result and how to recover.
-- Describe rup-flow Pro at feature level only. A reader must not be able to
-  recreate a Pro capability from this site: no Pro commands, flags,
-  configuration keys, templates or step-by-step procedures.
+- Mark everything that belongs to Pro: `edition: pro` and `since` in the front matter of a page,
+  the Pro tag in tables and steps.
 - Examples contain no credentials or private data.
 
 ## Verify locally

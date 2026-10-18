@@ -8,9 +8,10 @@ description: The free domain diagram, how to draw it and how to read it.
 The business concepts of the project and the relations between them. Attributes
 and importance levels are left out; the entity dictionary carries the detail.
 
-<div class="rup-diagram rup-diagram--light" role="region" aria-label="Scrollable UML class diagram of the simplified domain model" tabindex="0" markdown>
+<div class="rup-diagram" role="region" aria-label="Scrollable UML class diagram of the simplified domain model" tabindex="0" markdown>
 
-![Simplified domain model of an online shop with Order, OrderLine, Customer, Product and Address](../assets/diagrams/catalogue/domain-model-simple.svg)
+![Simplified domain model of an online shop with Order, OrderLine, Customer, Product and Address](../assets/gallery/light/domain-model-simple.svg#only-light)
+![Simplified domain model of an online shop with Order, OrderLine, Customer, Product and Address](../assets/gallery/dark/domain-model-simple.svg#only-dark)
 
 </div>
 
@@ -51,10 +52,8 @@ Order --> Address
 `00-domain-model/README.md` holds the entity dictionary (definition, key
 attributes, source) and the business rules (`RN-xxx`).
 
-<div class="rup-callout" markdown>
+!!! pro "In Pro"
 
-**Pro** draws the same model ranked by importance, with attributes and
-multiplicities, and adds the lifecycle of the entities whose state changes
-behaviour. See the [catalogue](index.md).
-
-</div>
+    Pro draws the same model ranked by importance, with attributes and
+    multiplicities, and adds the lifecycle of the entities whose state changes
+    behaviour. See the [catalogue](index.md).

@@ -11,8 +11,8 @@ skill and runs the CLI.
 
 <div class="rup-callout" markdown>
 
-**What you need:** Node.js 18 or newer and an agent that reads the Agent Skills
-format. Docker is optional and only draws the diagrams.
+**What you need:** Node.js 18 or newer, a shell and an AI coding agent. Docker is
+optional and only draws the diagrams.
 
 </div>
 
@@ -24,11 +24,11 @@ format. Docker is optional and only draws the diagrams.
 
 <span class="rup-step-number">01 · Install</span>
 
-### Install rup-flow
+## Install rup-flow
 
-Claude Code, Claude on the web, or any client that reads `.agents/skills`.
+Unzip the skill into the skills folder of your agent, or let the installer do it.
 
-[Choose your client](installation.md)
+[Choose your agent](installation.md)
 
 </div>
 
@@ -36,7 +36,7 @@ Claude Code, Claude on the web, or any client that reads `.agents/skills`.
 
 <span class="rup-step-number">02 · Document</span>
 
-### Document your first system
+## Document your first system
 
 One prompt, a folder of documents and diagrams, and a check.
 
@@ -48,11 +48,23 @@ One prompt, a folder of documents and diagrams, and a check.
 
 <span class="rup-step-number">03 · Understand</span>
 
-### See how it works
+## See how it works
 
 The skill, the CLI, the PlantUML server and what each one is responsible for.
 
 [Read how it works](how-it-works.md)
+
+</div>
+
+<div class="rup-card rup-card--linked rup-step" markdown>
+
+<span class="rup-step-number">04 · Fit</span>
+
+## Check your agent
+
+Which agents read the skill directly and which read an instruction file.
+
+[See compatible agents](compatible-agents.md)
 
 </div>
 
@@ -67,5 +79,7 @@ The skill, the CLI, the PlantUML server and what each one is responsible for.
 | Analysis | `02-analysis` | Analysis classes (boundary, control, entity) |
 | Quality | `05-quality` | Open questions |
 
-Design, implementation, traceability, audits and code are part of
-[rup-flow Pro](../pro/index.md).
+!!! pro "In Pro"
+
+    Design, implementation, traceability, audits and code in both directions
+    complete the other folders. See [the complete documentation set](../pro/documentation-set.md).

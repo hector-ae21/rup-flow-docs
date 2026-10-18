@@ -1,26 +1,25 @@
 @startuml system-context
 !include _theme.iuml
-left to right direction
 
 actor "Developer or analyst" as Person
-rectangle "AI coding agent\nClaude Code, Claude on the web, Codex, Gemini CLI" as Agent
 
-rectangle "rup-flow skill" as Skill {
-  rectangle "SKILL.md and references\nRules and methodology, loaded on demand" as Rules
-  rectangle "CLI (rup.mjs)\ninit, new use-case, index, render, check" as CLI
-  rectangle "Templates and editions catalogue" as Templates
+rectangle "AI coding agent\nClaude, Codex, Gemini, Cursor, Copilot and others" as Agent
+
+package "rup-flow" as Skill {
+  rectangle "Skill\nSKILL.md and references" as Rules
+  rectangle "CLI\nrup.mjs" as CLI
+  rectangle "Templates and catalogue" as Templates
 }
 
-database "The documentation folder and\nthe configuration file" as Files
-rectangle "PlantUML server\nLocal Docker container, 127.0.0.1" as PlantUML
+database "Project\nrup.config.json and the documentation folder" as Files
+rectangle "PlantUML server\nlocal Docker container" as PlantUML
 
-Person --> Agent : prompt
-Agent --> Rules : reads
-Agent --> CLI : runs
+Person --> Agent : asks in plain language
+Agent --> Rules : reads the rules
+Agent --> CLI : runs commands
 CLI --> Templates : fills
 CLI --> Files : reads and writes
 CLI --> PlantUML : diagram sources
 PlantUML --> CLI : SVG
-Agent --> Files : writes documents
-Agent --> Person : report: created, open questions, unchecked
+Agent --> Person : report of what was done,\nopen questions, unchecked items
 @enduml
