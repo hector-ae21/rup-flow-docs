@@ -17,9 +17,10 @@ since: "1.0"
 
 ## Where
 
-rup-flow Pro is listed on [Agensi](https://www.agensi.io), the marketplace for agent
-skills. Search for `rup-flow` and open the Pro listing, which shows the current price and
-the latest version.
+rup-flow Pro is sold on [Agensi](https://www.agensi.io), the marketplace for agent skills:
+[rup-flow Pro: Complete RUP Workflow, Both Ways](https://www.agensi.io/skills/rup-flow-pro-complete-rup-workflow-both-ways).
+The listing shows the current price and the latest version. The free edition is at
+[rup-flow: RUP Documentation From Requirements](https://www.agensi.io/skills/rup-flow-rup-documentation-from-requirements).
 
 ## Install it
 

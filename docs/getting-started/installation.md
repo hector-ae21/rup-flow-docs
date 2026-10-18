@@ -22,8 +22,8 @@ The skill needs Node.js 18 or newer. Docker is only needed to draw diagrams (see
 
 | Edition | File | Where it comes from |
 | --- | --- | --- |
-| <span class="rup-free-tag">Free</span> | `rup-flow-free-<version>.zip` | The marketplace listing of rup-flow (free) |
-| <span class="rup-pro-tag">Pro</span> | `rup-flow-pro-<version>.zip` | The marketplace listing of rup-flow Pro, see [Get Pro](../pro/get-pro.md) |
+| <span class="rup-free-tag">Free</span> | `rup-flow-free-<version>.zip` | The [rup-flow listing](https://www.agensi.io/skills/rup-flow-rup-documentation-from-requirements) |
+| <span class="rup-pro-tag">Pro</span> | `rup-flow-pro-<version>.zip` | The [rup-flow Pro listing](https://www.agensi.io/skills/rup-flow-pro-complete-rup-workflow-both-ways), see [Get Pro](../pro/get-pro.md) |
 
 The version is part of the file name. After installing, `rup.mjs version` prints
 it.
