@@ -28,6 +28,9 @@
       <small>{{ nav_item.meta.subtitle }}</small>
     {% endif %}
   </span>
+  {% if nav_item.meta and nav_item.meta.edition == "pro" %}
+    <span class="rup-pro-tag rup-pro-tag--nav">Pro</span>
+  {% endif %}
   {% if nav_item.meta and nav_item.encrypted %}
     {{ render_status(nav_item, "encrypted") }}
   {% endif %}

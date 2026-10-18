@@ -30,6 +30,6 @@
     "playwright": "1.63.0"
   },
   "rupFlow": {
-    "version": "0.4.0"
+    "version": "1.0.0"
   }
 }

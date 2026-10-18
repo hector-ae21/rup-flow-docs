@@ -1,5 +1,5 @@
 site_name: rup-flow
-site_description: Turn requirements into RUP documentation and code with your AI coding agent
+site_description: Turn requirements into RUP documentation and code with any AI coding agent
 site_author: Hector Arrechea
 site_url: &documentation_root https://hector-ae21.github.io/rup-flow-docs/
 repo_name: hector-ae21/rup-flow-docs
@@ -104,6 +104,7 @@ nav:
   - Get started:
       - Get started overview: getting-started/index.md
       - Install rup-flow: getting-started/installation.md
+      - Compatible agents: getting-started/compatible-agents.md
       - Document your first system: getting-started/first-documentation.md
       - How it works: getting-started/how-it-works.md
   - Guides:
@@ -111,7 +112,6 @@ nav:
       - Document a system: guides/document-a-system.md
       - Add and change use cases: guides/use-cases.md
       - Render and check diagrams: guides/render-and-check.md
-      - Use another agent: guides/other-agents.md
       - Troubleshooting: guides/troubleshooting.md
   - Reference:
       - Reference overview: reference/index.md
@@ -128,17 +128,35 @@ nav:
       - Conventions: diagrams/conventions.md
   - Architecture:
       - Architecture overview: architecture/index.md
+      - Structure: architecture/structure.md
+      - Runtime behaviour: architecture/behavior.md
       - Editions and the extension point: architecture/editions.md
       - Trust and data flow: architecture/trust-and-data.md
+      - Quality and decisions: architecture/decisions.md
       - Delivery and branches: architecture/delivery.md
   - rup-flow Pro:
       - Pro overview: pro/index.md
       - Free and Pro compared: pro/compare.md
-      - The complete documentation set: pro/documentation-set.md
-      - Code in both directions: pro/code.md
-      - Themes, Mermaid and the explorer: pro/themes-and-explorer.md
-      - Packs, libraries and subagents: pro/packs-and-agents.md
+      - Documentation:
+          - The complete documentation set: pro/documentation-set.md
+          - Use-case cards: pro/use-case-cards.md
+          - Domain model diagrams: pro/diagrams-domain.md
+          - Requirements diagrams: pro/diagrams-requirements.md
+          - Analysis and design diagrams: pro/diagrams-design.md
+      - Code:
+          - Code to RUP: pro/code-to-rup.md
+          - RUP to code: pro/rup-to-code.md
+          - Sync and audit: pro/sync-and-audit.md
+      - Look and navigation:
+          - Themes: pro/themes.md
+          - Mermaid and PNG previews: pro/mermaid.md
+          - The interactive explorer: pro/explorer.md
+      - Extras:
+          - Stack packs: pro/packs.md
+          - Domain libraries: pro/domain-libraries.md
+          - Subagents: pro/subagents.md
       - Get Pro: pro/get-pro.md
+      - Pro versions and compatibility: pro/versions.md
       - License and support: pro/license-and-support.md
   - Releases:
       - Release overview: releases/index.md

@@ -6,3 +6,17 @@
     <strong>Open the current documentation.</strong>
   </a>
 {% endblock %}
+
+{% block content %}
+  {% if page and page.meta and page.meta.edition == "pro" %}
+    <div class="rup-edition-banner" role="note">
+      <span class="rup-pro-tag">Pro</span>
+      <span>
+        This page describes rup-flow Pro{% if page.meta.since %}, available since Pro {{ page.meta.since }}{% endif %}.
+        The free edition does not include it.
+        <a href="{{ "pro/" | url }}">What Pro is</a>
+      </span>
+    </div>
+  {% endif %}
+  {{ super() }}
+{% endblock %}

@@ -1,0 +1,22 @@
+@startuml render
+!include _theme.iuml
+skinparam sequenceMessageAlign center
+
+participant "CLI" as CLI
+participant "Project" as Project
+participant "PlantUML server" as Server
+
+CLI -> Project : find every .puml source
+loop each diagram not up to date
+  CLI -> Server : POST /svg with the source
+  alt syntax error or server down
+    Server --> CLI : error
+    CLI -> CLI : add to the failed list
+  else drawn
+    Server --> CLI : SVG
+    CLI -> Project : write name.svg next to the source
+  end
+end
+CLI -> Project : record the render state
+CLI --> CLI : exit 1 if anything failed
+@enduml

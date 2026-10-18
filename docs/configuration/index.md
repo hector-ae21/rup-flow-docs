@@ -1,6 +1,6 @@
 ---
 title: Configuration
-description: The rup.config.json keys of the free edition and how flags override them.
+description: The rup.config.json keys, free and Pro, and how flags override them.
 ---
 
 # Configuration
@@ -32,20 +32,28 @@ optional because the defaults below apply.
 
 ## Keys
 
-| Key | Default | Meaning |
-| --- | --- | --- |
-| `project` | folder name | Name used in titles |
-| `outDir` | `docs/rup` | Root of the documentation, relative to the project root |
-| `docLanguage` | `en` | Language of the documents. File names, IDs, front-matter keys and PlantUML identifiers stay in English |
-| `codeRoot` | `.` | Where the code lives; used by editions that read or generate code |
-| `paths.*` | numbered folders | Folder name of each discipline under `outDir` |
-| `useCaseDir` | `use-cases` | Subfolder that holds one folder per use case |
-| `plantuml.url` | `http://127.0.0.1:8085` | Address of the PlantUML server |
-| `plantuml.timeoutMs` | `30000` | Time allowed for one render request |
-| `diagrams.language` | `plantuml` | Diagram language. The free edition supports `plantuml` |
-| `diagrams.outputs` | `["svg"]` | Render outputs. The free edition supports `svg` |
-| `ids.*` | `RF`, `RNF`, `UC`, `RN`, `DEC`, `TC` | Prefixes of the stable identifiers |
-| `targetStack` | empty | Target stack, read by editions that generate code |
+| Key | Default | Edition | Meaning |
+| --- | --- | --- | --- |
+| `project` | folder name | <span class="rup-free-tag">Free</span> | Name used in titles |
+| `outDir` | `docs/rup` | <span class="rup-free-tag">Free</span> | Root of the documentation, relative to the project root |
+| `docLanguage` | `en` | <span class="rup-free-tag">Free</span> | Language of the documents. File names, IDs, front-matter keys and PlantUML identifiers stay in English |
+| `codeRoot` | `.` | <span class="rup-pro-tag">Pro</span> | Where the code lives; read by `scan` and by code generation |
+| `paths.*` | numbered folders | <span class="rup-free-tag">Free</span> | Folder name of each discipline under `outDir` |
+| `useCaseDir` | `use-cases` | <span class="rup-free-tag">Free</span> | Subfolder that holds one folder per use case |
+| `plantuml.url` | `http://127.0.0.1:8085` | <span class="rup-free-tag">Free</span> | Address of the PlantUML server |
+| `plantuml.timeoutMs` | `30000` | <span class="rup-free-tag">Free</span> | Time allowed for one render request |
+| `diagrams.language` | `plantuml` | <span class="rup-free-tag">Free</span> | `plantuml`. <span class="rup-pro-tag">Pro</span>: also `mermaid` |
+| `diagrams.outputs` | `["svg"]` | <span class="rup-free-tag">Free</span> | `svg`. <span class="rup-pro-tag">Pro</span>: also `png` and `html` |
+| `ids.*` | `RF`, `RNF`, `UC`, `RN`, `DEC`, `TC` | <span class="rup-free-tag">Free</span> | Prefixes of the stable identifiers |
+| `targetStack` | empty | <span class="rup-pro-tag">Pro</span> | Language, framework, persistence and testing of the code to generate |
+| `traceTag` | `@rup` | <span class="rup-pro-tag">Pro</span> | Doc-comment tag that links code to a model element |
+| `theme.preset` | `default` | <span class="rup-pro-tag">Pro</span> | Palette name |
+| `theme.colors.*` | none | <span class="rup-pro-tag">Pro</span> | Color overrides; `levels` takes exactly four colors |
+| `theme.font` | system font stack | <span class="rup-pro-tag">Pro</span> | Font family of the diagrams |
+| `theme.fontSize` | `14` | <span class="rup-pro-tag">Pro</span> | Font size in points |
+| `theme.roundCorner` | `6` | <span class="rup-pro-tag">Pro</span> | Corner radius of boxes |
+| `mermaid.image` | pinned image | <span class="rup-pro-tag">Pro</span> | Container image that draws Mermaid |
+| `mermaid.timeoutMs` | `180000` | <span class="rup-pro-tag">Pro</span> | Time allowed for a Mermaid batch |
 
 ## Precedence
 
@@ -62,8 +70,9 @@ flags  >  rup.config.json  >  defaults
 Changing `paths` or `outDir` after documents exist means moving the folders and
 fixing the links. Do it as one explicit step and run `check` afterwards.
 
-## Settings that belong to Pro
+## Pro settings in the free edition
 
-The free edition rejects a configuration that asks for a Mermaid diagram
-language or a non-`svg` output, and ignores nothing silently: it stops with a
-message that names Pro. Theme settings are only read by Pro.
+The free edition does not ignore a Pro setting silently. A Mermaid language or a
+non-`svg` output in the file, or any `--theme`, `--font`, `--color-*` or
+`--preview-png` flag, stops the command with a message that names Pro. `theme` and
+`mermaid` keys are only read by Pro.

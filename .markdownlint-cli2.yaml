@@ -14,6 +14,7 @@ config:
       - sup
       - figure
       - figcaption
+      - a
       - svg
 globs:
   - "**/*.md"

@@ -1,0 +1,24 @@
+@startuml containers
+!include _theme.iuml
+
+rectangle "Your machine" as Machine {
+  rectangle "Agent process\nreads SKILL.md, calls the CLI" as Agent
+  rectangle "Node.js process\nrup.mjs, one run per command" as Node
+  database "Skill folder\nSKILL.md, references, templates, editions.json" as SkillDir
+  database "Project folder\nrup.config.json and docs/rup" as Project
+  rectangle "Docker container\nPlantUML server on 127.0.0.1:8085" as Docker
+}
+
+Agent --> SkillDir : reads
+Agent --> Node : shell command
+Node --> SkillDir : templates, catalogue
+Node --> Project : reads and writes
+Node --> Docker : HTTP, diagram source
+Docker --> Node : SVG
+Agent --> Project : writes documents
+
+note bottom of Docker
+  Published on the loopback interface only,
+  with the SANDBOX security profile.
+end note
+@enduml

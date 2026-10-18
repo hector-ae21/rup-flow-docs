@@ -18,7 +18,7 @@ private information, and conduct inappropriate in a professional setting.
 ## Enforcement
 
 Report unacceptable behavior privately through the contact methods in the
-[rup-flow security policy](https://github.com/hector-ae21/rup-flow/security/policy).
+[security policy](SECURITY.md).
 Project maintainers may remove, edit, or reject contributions and communication
 that do not align with this code, and will respect the reporter's privacy.
 

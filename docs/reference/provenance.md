@@ -32,7 +32,7 @@ what they block.
 <div class="rup-callout" markdown>
 
 **Observed** claims need code, which is the job of the code-to-RUP workflow in
-[rup-flow Pro](../pro/code.md). In the free edition, statements are confirmed,
+[rup-flow Pro](../pro/code-to-rup.md). In the free edition, statements are confirmed,
 assumed or open.
 
 </div>

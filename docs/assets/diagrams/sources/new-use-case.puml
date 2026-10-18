@@ -1,0 +1,22 @@
+@startuml new-use-case
+!include _theme.iuml
+skinparam sequenceMessageAlign center
+
+actor "Person" as Person
+participant "Agent" as Agent
+participant "CLI" as CLI
+database "Templates" as Templates
+database "Project" as Project
+
+Person -> Agent : "Add the use case cancelOrder"
+Agent -> CLI : new use-case cancelOrder --actor Customer
+CLI -> Project : next free identifier (UC-xxx)
+CLI -> Templates : card and specification
+CLI -> Project : write the files that do not exist yet
+CLI -> Project : refresh the use-case index
+CLI --> Agent : report: created, skipped, index
+Agent -> Project : fill the card from what the person said
+Agent -> CLI : check
+CLI --> Agent : errors and warnings
+Agent --> Person : files, open questions, what was not checked
+@enduml

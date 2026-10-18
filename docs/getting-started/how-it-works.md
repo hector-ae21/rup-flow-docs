@@ -5,11 +5,12 @@ description: The parts of rup-flow and what each one is responsible for.
 
 # How rup-flow works
 
-```text
-you ──► agent ──► SKILL.md + references ──► documents (Markdown)
-                      │
-                      └──► CLI (rup.mjs) ──► PlantUML server ──► SVG diagrams
-```
+<div class="rup-diagram" role="region" aria-label="Scrollable UML diagram of the person, the agent, the skill, the project files and the PlantUML server" tabindex="0" markdown>
+
+![The person asks an agent; the agent reads the skill, runs the CLI and writes the project files; the CLI draws diagrams through a local PlantUML server](../assets/diagrams/light/system-context.svg#only-light)
+![The person asks an agent; the agent reads the skill, runs the CLI and writes the project files; the CLI draws diagrams through a local PlantUML server](../assets/diagrams/dark/system-context.svg#only-dark)
+
+</div>
 
 ## The skill
 
@@ -19,8 +20,9 @@ for each request. The references (`methodology`, `domain-model`, `use-cases`,
 attention on your project, not on boilerplate.
 
 The skill is written once in the open
-[Agent Skills](https://agentskills.io/specification) format and adapted per
-client by small adapters (plugin manifest, installer, instruction files).
+[Agent Skills](https://agentskills.io/specification) format. Agents that do not read
+that format read a small instruction file instead; see
+[Compatible agents](compatible-agents.md).
 
 ## The CLI
 
@@ -33,6 +35,7 @@ A dependency-free Node.js program does the mechanical work:
 | Draws `.puml` sources into `.svg` | `render` |
 | Verifies structure, links and diagrams | `check` |
 | Writes the block that agents without skills read | `instructions` |
+| Tells what is installed | `version`, `editions` |
 
 ## The operating rules
 
@@ -49,6 +52,6 @@ See [Provenance marks](../reference/provenance.md) and the
 
 ## Editions
 
-The same CLI runs both editions. rup-flow Pro adds an extension that the CLI
-loads when it is present; without it, the CLI is the free edition. Read
-[Editions and the extension point](../architecture/editions.md).
+The same CLI runs both editions. rup-flow Pro adds an extension that the CLI loads
+when it is present; without it, the CLI is the free edition and says so when you ask
+for something outside it. Read [Editions and the extension point](../architecture/editions.md).

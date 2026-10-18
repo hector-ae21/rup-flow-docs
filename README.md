@@ -2,10 +2,10 @@
 
 [![Documentation CI](https://img.shields.io/github/actions/workflow/status/hector-ae21/rup-flow-docs/pull-request.yml?branch=v0.x&logo=github&label=documentation%20CI)](https://github.com/hector-ae21/rup-flow-docs/actions/workflows/pull-request.yml)
 
-Versioned documentation for [rup-flow](https://github.com/hector-ae21/rup-flow),
-the skill that turns requirements into RUP documentation with your AI coding
-agent. It documents the free edition completely and describes rup-flow Pro at
-feature level.
+Versioned documentation for rup-flow,
+the skill that turns requirements into RUP documentation with any AI coding
+agent. It documents the free edition and rup-flow Pro, and marks every page, row and step
+that belongs to Pro.
 
 Read it at <https://hector-ae21.github.io/rup-flow-docs/>. The site is versioned
 by the free edition's `MAJOR.MINOR`; each approved publication also gets an
@@ -39,12 +39,13 @@ site with `.venv/bin/mkdocs serve`.
 
 ## Rules
 
-- Document released behaviour. The free edition is documented completely.
-- Describe Pro at feature level only. Never write content that would let someone
-  recreate a Pro capability: no Pro commands, flags, configuration keys,
-  templates or step-by-step procedures.
-- The catalogue on the comparison page comes from `editions.json` of the free
-  repository. Update it there first, then here.
+- Document released behaviour of both editions, in detail.
+- Mark everything that belongs to Pro: `edition: pro` and `since` in the front matter of a
+  page, and the Pro tag in tables and steps. Pages without the mark describe the free edition.
+- Never document behaviour that does not exist.
+- Diagrams are PlantUML sources drawn in a light and a dark look; edit the source, not the SVG.
+- The catalogue on the comparison page comes from `editions.json` of the skill (private
+  repository). Update it there first, then here.
 - Examples contain no real credentials or private data.
 
 ## Versions

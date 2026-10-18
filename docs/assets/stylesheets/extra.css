@@ -768,3 +768,133 @@
   margin-top: 0.7rem;
   text-align: center;
 }
+
+/* Edition marks: Pro is amber on purpose, so it never reads as a link or as the brand blue. */
+:root {
+  --rup-pro-fg: #8a4b00;
+  --rup-pro-bg: #fff3d6;
+  --rup-pro-border: #e0a43a;
+  --rup-free-fg: #1d5c3a;
+  --rup-free-bg: #e2f5ea;
+  --rup-free-border: #6dbb8f;
+  --md-admonition-icon--pro: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 17.27 6.18 3.73-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>');
+}
+
+[data-md-color-scheme="slate"] {
+  --rup-pro-fg: #ffd27a;
+  --rup-pro-bg: #3b2a08;
+  --rup-pro-border: #a8741c;
+  --rup-free-fg: #9be3b8;
+  --rup-free-bg: #0f3321;
+  --rup-free-border: #3c8a60;
+}
+
+.rup-pro-tag,
+.rup-free-tag {
+  border: 0.05rem solid var(--rup-pro-border);
+  border-radius: 999px;
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  padding: 0.05rem 0.5rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.rup-pro-tag {
+  background: var(--rup-pro-bg);
+  color: var(--rup-pro-fg);
+}
+
+.rup-free-tag {
+  background: var(--rup-free-bg);
+  border-color: var(--rup-free-border);
+  color: var(--rup-free-fg);
+}
+
+.rup-pro-tag--nav {
+  font-size: 0.5rem;
+  margin-left: 0.4rem;
+  padding: 0 0.35rem;
+}
+
+.rup-edition-banner {
+  align-items: center;
+  background: var(--rup-pro-bg);
+  border: 0.05rem solid var(--rup-pro-border);
+  border-left-width: 0.3rem;
+  border-radius: 0.5rem;
+  color: var(--md-default-fg-color);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0 0 1.4rem;
+  padding: 0.6rem 0.9rem;
+}
+
+.rup-edition-banner .rup-pro-tag {
+  background: var(--rup-pro-fg);
+  border-color: var(--rup-pro-fg);
+  color: var(--rup-pro-bg);
+}
+
+.md-typeset .admonition.pro,
+.md-typeset details.pro {
+  border-color: var(--rup-pro-border);
+}
+
+.md-typeset .pro > .admonition-title,
+.md-typeset .pro > summary {
+  background-color: var(--rup-pro-bg);
+}
+
+.md-typeset .pro > .admonition-title::before,
+.md-typeset .pro > summary::before {
+  background-color: var(--rup-pro-fg);
+  -webkit-mask-image: var(--md-admonition-icon--pro);
+  mask-image: var(--md-admonition-icon--pro);
+}
+
+.md-typeset table:not([class]) td .rup-pro-tag,
+.md-typeset table:not([class]) td .rup-free-tag {
+  white-space: nowrap;
+}
+
+/* Diagrams follow the page theme: one light and one dark SVG per diagram. */
+.rup-diagram {
+  background: var(--rup-panel);
+  border: 0.05rem solid var(--rup-border);
+}
+
+.rup-gallery figure {
+  background: var(--rup-panel);
+}
+
+.rup-gallery figcaption {
+  color: var(--md-default-fg-color--light);
+}
+
+.rup-diagram--light {
+  background: var(--rup-panel);
+  border-color: var(--rup-border);
+}
+
+.rup-diagram img {
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+
+@media screen and (max-width: 44.9375em) {
+  .rup-diagram img {
+    max-width: none;
+    min-width: 34rem;
+  }
+}
+
+.rup-edition-banner {
+  align-items: baseline;
+  flex-wrap: nowrap;
+}

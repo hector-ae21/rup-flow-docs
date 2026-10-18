@@ -1,0 +1,23 @@
+@startuml trust-boundaries
+!include _theme.iuml
+left to right direction
+
+package "Your machine" as Local {
+  rectangle "rup-flow CLI" as CLI
+  database "Project files" as Files
+  rectangle "PlantUML container\n127.0.0.1 only" as PlantUML
+}
+
+cloud "Agent provider\nits own terms and privacy policy" as Provider
+cloud "Container registry\nimage pulled once" as Registry
+
+CLI --> Files : reads and writes\ninside the folders you choose
+CLI --> PlantUML : diagram sources
+Provider ..> Files : prompts and files the agent reads
+Registry ..> PlantUML : first start only
+
+note bottom of Local
+  rup-flow has no account, no analytics
+  and no service of its own.
+end note
+@enduml

@@ -10,9 +10,10 @@ of the conversation between the actor and the system. The card describes the
 same paths in words; if they diverge, the specification wins and the card is
 corrected.
 
-<div class="rup-diagram rup-diagram--light" role="region" aria-label="Scrollable UML statechart of the createOrder use case" tabindex="0" markdown>
+<div class="rup-diagram" role="region" aria-label="Scrollable UML statechart of the createOrder use case" tabindex="0" markdown>
 
-![Statechart of the createOrder use case: Basket, Checkout, Validating and Placed](../assets/diagrams/catalogue/specification.svg)
+![Statechart of the createOrder use case: Basket, Checkout, Validating and Placed](../assets/gallery/light/specification.svg#only-light)
+![Statechart of the createOrder use case: Basket, Checkout, Validating and Placed](../assets/gallery/dark/specification.svg#only-dark)
 
 </div>
 
@@ -31,10 +32,10 @@ state "createOrder" as createOrder {
   state " " as Placed
 
   [*] --> Basket
-  Basket --> Checkout : Customer asks to check out
-  Checkout --> Validating : Customer confirms address
-  Validating --> Checkout : System reports unavailable stock or missing address
-  Validating --> Placed : System creates order and reserves stock
+  Basket --> Checkout : Customer checks out
+  Checkout --> Validating : Customer confirms
+  Validating --> Checkout : System reports a problem
+  Validating --> Placed : System creates the order
   Placed --> [*]
 
   note on link
@@ -60,10 +61,8 @@ state "createOrder" as createOrder {
 - Every input and every precondition has a failure path.
 - The paths match the flows in the card.
 
-<div class="rup-callout" markdown>
+!!! pro "In Pro"
 
-**Pro** adds the wireframes of the screens of the flow, the analysis
-collaboration and the design sequence for the same use case, each linked from
-the card. See the [catalogue](index.md).
-
-</div>
+    Pro adds the wireframes of the screens of the flow, the analysis
+    collaboration and the design sequence for the same use case, each linked from
+    the card. See the [catalogue](index.md).
