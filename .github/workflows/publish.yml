@@ -1,0 +1,239 @@
+name: Publish versioned documentation
+run-name: Publish documentation from ${{ github.sha }}
+
+on:
+  push:
+    branches:
+      - v0.x
+  workflow_dispatch:
+
+concurrency:
+  group: documentation-release
+  cancel-in-progress: false
+
+env:
+  NO_MKDOCS_2_WARNING: "true"
+
+jobs:
+  build:
+    name: Build immutable documentation
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      pages: write
+    outputs:
+      application_version: ${{ steps.release.outputs.application_version }}
+      application_line: ${{ steps.release.outputs.application_line }}
+      publication_tag: ${{ steps.release.outputs.publication_tag }}
+      publication_version: ${{ steps.release.outputs.publication_version }}
+      publish_documentation_line: ${{ steps.release.outputs.publish_documentation_line }}
+    steps:
+      - name: Check out complete history
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: requirements.lock
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install Python dependencies
+        run: python -m pip install --require-hashes -r requirements.lock
+
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Resolve documentation release
+        id: release
+        run: node scripts/resolve-release.mjs "$GITHUB_SHA"
+
+      - name: Authorize manual recovery source
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          REUSED_RELEASE: ${{ steps.release.outputs.reused }}
+          SOURCE_REF: ${{ github.ref }}
+        run: |
+          if [ "$SOURCE_REF" != "refs/heads/v0.x" ] && [ "$REUSED_RELEASE" != "true" ]; then
+            echo "Manual publication must target v0.x or an existing documentation release tag." >&2
+            exit 1
+          fi
+
+      - name: Validate release identity
+        env:
+          APPLICATION_VERSION: ${{ steps.release.outputs.application_version }}
+          PUBLICATION_VERSION: ${{ steps.release.outputs.publication_version }}
+        run: node scripts/validate-release.mjs "$PUBLICATION_VERSION" "$APPLICATION_VERSION"
+
+      - name: Build documentation
+        run: npm run build
+
+      - name: Configure documentation publisher
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Create immutable source tag
+        if: steps.release.outputs.reused == 'false'
+        env:
+          APPLICATION_VERSION: ${{ steps.release.outputs.application_version }}
+          PUBLICATION_TAG: ${{ steps.release.outputs.publication_tag }}
+          PUBLICATION_VERSION: ${{ steps.release.outputs.publication_version }}
+        run: |
+          git tag --annotate "$PUBLICATION_TAG" "$GITHUB_SHA" \
+            --message "rup-flow documentation publication $PUBLICATION_VERSION for rup-flow $APPLICATION_VERSION"
+          git push origin "refs/tags/$PUBLICATION_TAG"
+
+      - name: Fetch published documentation history
+        if: steps.release.outputs.publish_documentation_line == 'true'
+        run: git fetch origin gh-pages:gh-pages
+
+      - name: Convert exact patch paths to release-line redirects
+        if: steps.release.outputs.publish_documentation_line == 'true'
+        env:
+          APPLICATION_LINE: ${{ steps.release.outputs.application_line }}
+          APPLICATION_VERSION: ${{ steps.release.outputs.application_version }}
+        run: |
+          git show gh-pages:versions.json > "$RUNNER_TEMP/versions.json"
+          node --input-type=module --eval '
+            import { readFileSync, writeFileSync } from "node:fs";
+            import { collectPatchDocumentationPaths } from "./scripts/release-version.mjs";
+            const versions = JSON.parse(readFileSync(process.argv[1], "utf8"));
+            const paths = collectPatchDocumentationPaths(versions, process.argv[2]);
+            const versionLines = paths.versions.join("\n");
+            writeFileSync(process.argv[3], versionLines.length === 0 ? "" : `${versionLines}\n`);
+            for (const redirect of paths.redirects) console.log(redirect);
+          ' "$RUNNER_TEMP/versions.json" "$APPLICATION_LINE" \
+            "$RUNNER_TEMP/legacy-patch-versions.txt" \
+            > "$RUNNER_TEMP/legacy-patch-paths.txt"
+          if ! grep --fixed-strings --line-regexp --quiet \
+            "$APPLICATION_VERSION" "$RUNNER_TEMP/legacy-patch-paths.txt"; then
+            echo "$APPLICATION_VERSION" >> "$RUNNER_TEMP/legacy-patch-paths.txt"
+          fi
+          sort --unique "$RUNNER_TEMP/legacy-patch-paths.txt" \
+            --output "$RUNNER_TEMP/legacy-patch-paths.txt"
+          while IFS= read -r version; do
+            if [ -n "$version" ]; then
+              mike delete --branch gh-pages "$version"
+            fi
+          done < "$RUNNER_TEMP/legacy-patch-versions.txt"
+
+      - name: Publish documented rup-flow line and redirect aliases
+        if: steps.release.outputs.publish_documentation_line == 'true'
+        env:
+          APPLICATION_LINE: ${{ steps.release.outputs.application_line }}
+        run: |
+          mapfile -t PATCH_REDIRECTS < "$RUNNER_TEMP/legacy-patch-paths.txt"
+          mike deploy --branch gh-pages --alias-type redirect --update-aliases \
+            "$APPLICATION_LINE" "${PATCH_REDIRECTS[@]}" latest stable
+          mike set-default --branch gh-pages latest
+          git push origin gh-pages:gh-pages
+
+      - name: Export the pushed Pages tree
+        if: steps.release.outputs.publish_documentation_line == 'true'
+        run: |
+          git fetch origin gh-pages
+          mkdir --parents "$RUNNER_TEMP/rup-pages"
+          git archive origin/gh-pages | tar --extract --directory "$RUNNER_TEMP/rup-pages"
+
+      - name: Validate the pushed Pages tree
+        if: steps.release.outputs.publish_documentation_line == 'true'
+        env:
+          APPLICATION_LINE: ${{ steps.release.outputs.application_line }}
+        run: |
+          mapfile -t PATCH_REDIRECTS < "$RUNNER_TEMP/legacy-patch-paths.txt"
+          node scripts/validate-deployment.mjs site "$RUNNER_TEMP/rup-pages" \
+            "$APPLICATION_LINE" "${PATCH_REDIRECTS[@]}" latest stable
+
+      - name: Configure GitHub Pages
+        if: steps.release.outputs.publish_documentation_line == 'true'
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d
+
+      - name: Upload GitHub Pages artifact
+        if: steps.release.outputs.publish_documentation_line == 'true'
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9
+        with:
+          path: ${{ runner.temp }}/rup-pages
+
+  deploy:
+    name: Deploy GitHub Pages
+    needs: build
+    if: needs.build.outputs.publish_documentation_line == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      actions: read
+      contents: read
+      id-token: write
+      pages: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy documentation
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346
+
+  release:
+    name: Verify and record documentation release
+    needs:
+      - build
+      - deploy
+    if: >-
+      always() &&
+      needs.build.result == 'success' &&
+      (needs.deploy.result == 'success' || needs.deploy.result == 'skipped')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - name: Check out released sources
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        with:
+          node-version: "24"
+
+      - name: Verify public version and aliases
+        if: needs.build.outputs.publish_documentation_line == 'true'
+        env:
+          APPLICATION_LINE: ${{ needs.build.outputs.application_line }}
+          APPLICATION_VERSION: ${{ needs.build.outputs.application_version }}
+          PAGE_URL: ${{ needs.deploy.outputs.page_url }}
+        run: |
+          node scripts/verify-pages.mjs "$PAGE_URL" "$APPLICATION_LINE" \
+            "$APPLICATION_VERSION" latest stable
+
+      - name: Create GitHub Release
+        env:
+          APPLICATION_VERSION: ${{ needs.build.outputs.application_version }}
+          APPLICATION_LINE: ${{ needs.build.outputs.application_line }}
+          PUBLICATION_TAG: ${{ needs.build.outputs.publication_tag }}
+          PUBLICATION_VERSION: ${{ needs.build.outputs.publication_version }}
+          PUBLISH_DOCUMENTATION_LINE: ${{ needs.build.outputs.publish_documentation_line }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "$PUBLICATION_TAG" > /dev/null 2>&1; then
+            echo "Release $PUBLICATION_TAG already exists."
+          else
+            LATEST_FLAG="--latest=false"
+            if [ "$PUBLISH_DOCUMENTATION_LINE" = "true" ]; then
+              LATEST_FLAG="--latest"
+            fi
+            gh release create "$PUBLICATION_TAG" --verify-tag --generate-notes \
+              "$LATEST_FLAG" \
+              --title "Documentation publication $PUBLICATION_VERSION for rup-flow $APPLICATION_LINE (validated with $APPLICATION_VERSION)"
+          fi

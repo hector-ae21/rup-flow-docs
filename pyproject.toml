@@ -1,0 +1,14 @@
+[project]
+name = "rup-flow-docs"
+version = "0.1.0"
+description = "Professional, versioned documentation for rup-flow"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+  "mike==2.2.0",
+  "mkdocs-material==9.7.7",
+]
+
+[tool.pip-tools]
+generate-hashes = true
+strip-extras = true
+

@@ -1,0 +1,148 @@
+site_name: rup-flow
+site_description: Turn requirements into RUP documentation and code with your AI coding agent
+site_author: Hector Arrechea
+site_url: &documentation_root https://hector-ae21.github.io/rup-flow-docs/
+repo_name: hector-ae21/rup-flow-docs
+repo_url: https://github.com/hector-ae21/rup-flow-docs
+edit_uri: edit/v0.x/docs/
+copyright: Copyright &copy; 2026 Hector Arrechea
+strict: true
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: en
+  logo: assets/brand/rup-flow-mark.png
+  favicon: assets/brand/rup-flow-favicon.png
+  font: false
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    - navigation.indexes
+    - navigation.instant
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Use dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Use light mode
+
+plugins:
+  - privacy
+  - search:
+      lang: en
+  - tags
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra_javascript:
+  - assets/javascripts/navigation.js
+
+extra:
+  # Mike rewrites site_url to the deployed version's own root, so a template
+  # cannot use it to reach the site root. This alias of the source site_url
+  # stays untouched by the version plugin.
+  documentation_root: *documentation_root
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/hector-ae21/rup-flow
+      name: rup-flow on GitHub
+  version:
+    provider: mike
+    default: latest
+
+nav:
+  - Home: index.md
+  - Get started:
+      - Get started overview: getting-started/index.md
+      - Install rup-flow: getting-started/installation.md
+      - Document your first system: getting-started/first-documentation.md
+      - How it works: getting-started/how-it-works.md
+  - Guides:
+      - Guides overview: guides/index.md
+      - Document a system: guides/document-a-system.md
+      - Add and change use cases: guides/use-cases.md
+      - Render and check diagrams: guides/render-and-check.md
+      - Use another agent: guides/other-agents.md
+      - Troubleshooting: guides/troubleshooting.md
+  - Reference:
+      - Reference overview: reference/index.md
+      - Command line: reference/cli.md
+      - Configuration: configuration/index.md
+      - Folder structure: reference/folder-structure.md
+      - Front matter and identifiers: reference/front-matter.md
+      - Provenance marks: reference/provenance.md
+  - Diagrams:
+      - Diagram catalogue: diagrams/index.md
+      - Simplified domain model: diagrams/domain-model-simple.md
+      - Use-case specification: diagrams/specification.md
+      - Analysis classes: diagrams/analysis-classes.md
+      - Conventions: diagrams/conventions.md
+  - Architecture:
+      - Architecture overview: architecture/index.md
+      - Editions and the extension point: architecture/editions.md
+      - Trust and data flow: architecture/trust-and-data.md
+      - Delivery and branches: architecture/delivery.md
+  - rup-flow Pro:
+      - Pro overview: pro/index.md
+      - Free and Pro compared: pro/compare.md
+      - The complete documentation set: pro/documentation-set.md
+      - Code in both directions: pro/code.md
+      - Themes, Mermaid and the explorer: pro/themes-and-explorer.md
+      - Packs, libraries and subagents: pro/packs-and-agents.md
+      - Get Pro: pro/get-pro.md
+      - License and support: pro/license-and-support.md
+  - Releases:
+      - Release overview: releases/index.md
+      - Changelog: releases/changelog.md
+      - Versioning and URLs: releases/versioning.md
+      - Update rup-flow: releases/updating.md
+      - Contributing: contributing/index.md
