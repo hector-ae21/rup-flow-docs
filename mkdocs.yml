@@ -152,7 +152,8 @@ nav:
           - Mermaid and PNG previews: pro/mermaid.md
           - The interactive explorer: pro/explorer.md
       - Extras:
-          - Stack packs: pro/packs.md
+          - Stack packs and ORM guides: pro/packs.md
+          - Modular design and secure coding: pro/secure-coding.md
           - Domain libraries: pro/domain-libraries.md
           - Subagents: pro/subagents.md
       - Get Pro: pro/get-pro.md

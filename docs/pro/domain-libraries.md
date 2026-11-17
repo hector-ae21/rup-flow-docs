@@ -1,6 +1,6 @@
 ---
 title: Domain libraries
-description: Ready starting points for common domains in rup-flow Pro, and the lms library in detail.
+description: Thirteen ready starting points for common domains in rup-flow Pro, what each contains, and the lms library in detail.
 edition: pro
 since: "1.0"
 ---
@@ -18,15 +18,44 @@ never presents a library as your requirements.
 
 ## Included
 
-| Library | Domain |
+| Library | Domain | Lifecycle it draws | Since |
+| --- | --- | --- | --- |
+| `identity-access` | Users, organisations, memberships, roles and permissions, credentials, sessions, invitations, audit | User account | 1.1 |
+| `ecommerce` | Catalogue, cart, orders, payments, shipments, returns | Order | 1.1 |
+| `saas-billing` | Plans and prices, subscriptions with trials and seats, metered usage, invoices, dunning | Subscription | 1.1 |
+| `booking` | Bookable resources, availability, holds, reservations, cancellations, no-shows | Booking | 1.1 |
+| `healthcare-clinic` | Patients, practitioners, appointments, encounters, diagnoses, prescriptions, consent | Appointment | 1.1 |
+| `helpdesk` | Tickets, queues, SLA targets, escalation, satisfaction surveys | Ticket | 1.1 |
+| `crm` | Leads, accounts, contacts, opportunities through a pipeline, activities, quotes | Opportunity | 1.1 |
+| `inventory-warehouse` | Items, warehouses and bins, lots, receipts, picks, transfers, counts | Transfer order | 1.1 |
+| `hr-payroll` | Employees, contracts, leave requests and balances, payroll runs, payslips | Leave request | 1.1 |
+| `project-management` | Projects, tasks through a workflow, sprints, milestones, dependencies, time logs | Task | 1.1 |
+| `banking-wallet` | Customers with KYC, wallet accounts, transfers posted to a double-entry ledger | Transfer | 1.1 |
+| `food-delivery` | Restaurants, menus, delivery zones, orders through the kitchen, couriers, tracking | Order | 1.1 |
+| `lms` | Learning platforms: courses, enrolment, activities, grading, completion | Enrolment | 1.0 |
+
+`identity-access` is the base of most of the others: offer it alongside any library whose
+actors sign in.
+
+## What a library contains
+
+| Part | Content |
 | --- | --- |
-| `lms` | Learning platforms: courses, enrolment, activities, grading, completion |
+| `domain-model.puml` | Ranked model with attributes and multiplicities |
+| `domain-model-simple.puml` | Entities and relations only |
+| `entity-states.puml` | Lifecycle of the main entity; each transition names its use case |
+| Entity dictionary | Level, definition and key attributes of each entity |
+| Business rules | Testable rules `RN-xxx`, each to be confirmed |
+| Actors and use cases | Primary and secondary actors; use cases with their package and the rules they touch, ready for `RUP new use-case` |
+| Non-functional concerns | Since 1.1: the regulation, privacy, concurrency and security points of the domain, such as PCI DSS for payments, health data, e-money licences or minors in education, each to be confirmed |
+| Questions to ask | What the agent asks before using the library |
 
-More libraries are announced in the [Pro changelog](versions.md).
+The Pro build checks that every library is consistent with its diagrams, and every diagram
+renders.
 
-## `lms`
+## Example: `lms`
 
-The agent offers it when the objective mentions courses, enrolment, learners and
+All libraries follow this shape. The agent offers it when the objective mentions courses, enrolment, learners and
 teachers, activities, grading or completion.
 
 ### Entities
@@ -75,4 +104,4 @@ re-enrol is a question the library asks.
 
 ## Related
 
-[Stack packs](packs.md) · [The complete documentation set](documentation-set.md)
+[Stack packs and ORM guides](packs.md) · [The complete documentation set](documentation-set.md)

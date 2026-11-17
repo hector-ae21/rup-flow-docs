@@ -58,7 +58,8 @@ The free edition is a working sample of the workflow: it gives you the first dis
 | RUP to code with trace links | — | Included | [Read](rup-to-code.md) |
 | Drift detection between documentation and code | — | Included | [Read](sync-and-audit.md) |
 | Audit and review of the documentation | — | Included | [Read](sync-and-audit.md) |
-| Architect and reviewer subagents | — | Included | [Read](subagents.md) |
+| Modular design and secure coding rules for generated code | — | Included | [Read](secure-coding.md) |
+| Subagents: architect, coder, scanner, reviewer and security reviewer | — | Included | [Read](subagents.md) |
 
 ## Tooling
 
@@ -70,8 +71,9 @@ The free edition is a working sample of the workflow: it gives you the first dis
 | Mermaid as a second diagram language | — | Included | [Read](mermaid.md) |
 | PNG previews | — | Included | [Read](mermaid.md) |
 | Interactive explorer (search, relations, PNG and SVG export) | — | Included | [Read](explorer.md) |
-| Stack packs for code generation | — | Included | [Read](packs.md) |
-| Ready-made domain libraries | — | Included | [Read](domain-libraries.md) |
+| Framework packs for code generation (10 frameworks in 7 languages) | — | Included | [Read](packs.md) |
+| ORM and data-access guides (13) | — | Included | [Read](packs.md) |
+| Ready-made domain libraries (13) | — | Included | [Read](domain-libraries.md) |
 
 ## Keep going
 

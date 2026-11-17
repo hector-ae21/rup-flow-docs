@@ -59,10 +59,12 @@ interactive explorer.
 
 ## Packs, libraries and subagents
 
-Stack packs, ready domain libraries and two subagents that generate and review
+Framework packs for ten frameworks in seven languages with thirteen ORM guides, secure
+coding by default, thirteen domain libraries and five subagents that generate and review
 independently.
 
-[Stack packs](packs.md) · [Domain libraries](domain-libraries.md) · [Subagents](subagents.md)
+[Stack packs and ORM guides](packs.md) · [Secure coding](secure-coding.md) ·
+[Domain libraries](domain-libraries.md) · [Subagents](subagents.md)
 
 </div>
 
