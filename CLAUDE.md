@@ -22,7 +22,7 @@ The rules below are the owner's and take precedence over any default of the agen
 
 Python 3.13, Node.js 24, Playwright and PlantUML run **in Docker containers**. Nothing is installed on the host. Docker Desktop is available; if it is not running, ask the owner to start it. Run the commands from Git Bash.
 
-Build the image `rup-flow-docs-dev` once, and again when the Playwright version in `package-lock.json` changes (`1.64.1` below):
+Build the image `rup-flow-docs-dev` once, and again when the Playwright version in `package-lock.json` changes (`1.65.0` below):
 
 ```bash
 docker build -t rup-flow-docs-dev - <<'EOF'
@@ -35,7 +35,7 @@ COPY --from=docker /usr/local/bin/docker /usr/local/bin/docker
 ENV PLAYWRIGHT_BROWSERS_PATH=/opt/playwright
 RUN ln -s ../lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm && ln -s ../lib/node_modules/npm/bin/npx-cli.js /usr/local/bin/npx \
  && apt-get update && apt-get install -y --no-install-recommends git \
- && npx -y playwright@1.64.1 install --with-deps chromium \
+ && npx -y playwright@1.65.0 install --with-deps chromium \
  && rm -rf /var/lib/apt/lists/* /root/.npm
 EOF
 ```
