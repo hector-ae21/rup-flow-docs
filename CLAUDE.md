@@ -71,4 +71,4 @@ How the command is put together:
 ## Scope
 
 - Every change to the free or Pro edition of the skill is documented here in the same release. Update `editions.json` in the skill first, then the comparison page here.
-- The Moodle edition of the skill (`moodle-pro`, the Moodle expert) is **never** documented here.
+- The Moodle expert of Pro (`experts/moodle`, the `moodle-plugin` pack, the `moodle-dml` guide and the `moodle-expert` subagent) is **never** documented here (owner decision).

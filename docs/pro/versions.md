@@ -12,13 +12,14 @@ skill and states which one:
 
 ```console
 RUP version
-rup-flow Pro 1.1.0 (built on rup-flow free 1.0.1)
+rup-flow Pro 1.2.0 (built on rup-flow free 1.0.1)
 ```
 
 ## Compatibility
 
 | Pro | Contains free | Documentation line |
 | --- | --- | --- |
+| 1.2.0 | 1.0.1 | 1.0 |
 | 1.1.0 | 1.0.1 | 1.0 |
 | 1.0.1 | 1.0.1 | 1.0 |
 | 1.0.0 | 1.0.0 | 1.0 |
@@ -29,6 +30,12 @@ on the line of the free version it contains. Pages and rows marked
 after Pro 1.0.
 
 ## Pro changelog
+
+### 1.2.0
+
+Built on rup-flow free 1.0.1.
+
+- Additional content in the Pro package. No behaviour documented on this site changes.
 
 ### 1.1.0
 
