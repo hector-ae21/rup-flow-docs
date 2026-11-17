@@ -42,8 +42,10 @@ Use rup-flow-pro to implement UC-001 from the design.
 | Wireframe fields | Request and response contract and form fields |
 | Deployment | Dockerfile, compose or manifests |
 
-A [stack pack](packs.md) that matches your configuration refines this mapping for that
-stack.
+A [framework pack and an ORM guide](packs.md) that match your configuration refine this
+mapping for that stack. Every run applies the
+[modular design and secure coding](secure-coding.md) rules: authentication by default,
+ownership checks, strict contracts and one place that maps errors to HTTP.
 
 ## The run
 
@@ -78,4 +80,4 @@ stack.
 ## Related
 
 [Code to RUP](code-to-rup.md) · [Sync and audit](sync-and-audit.md) ·
-[Subagents](subagents.md)
+[Stack packs and ORM guides](packs.md) · [Subagents](subagents.md)

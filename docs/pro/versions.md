@@ -12,13 +12,14 @@ skill and states which one:
 
 ```console
 RUP version
-rup-flow Pro 1.0.1 (built on rup-flow free 1.0.1)
+rup-flow Pro 1.1.0 (built on rup-flow free 1.0.1)
 ```
 
 ## Compatibility
 
 | Pro | Contains free | Documentation line |
 | --- | --- | --- |
+| 1.1.0 | 1.0.1 | 1.0 |
 | 1.0.1 | 1.0.1 | 1.0 |
 | 1.0.0 | 1.0.0 | 1.0 |
 
@@ -28,6 +29,29 @@ on the line of the free version it contains. Pages and rows marked
 after Pro 1.0.
 
 ## Pro changelog
+
+### 1.1.0
+
+Built on rup-flow free 1.0.1.
+
+- A stack is now a framework pack plus an ORM guide, chosen from `CATALOG.md`. Ten
+  framework packs in seven languages: `nestjs`, `express`, `fastify`, `axum`, `fastapi`,
+  `django`, `spring-boot`, `aspnet-core`, `gin` and `laravel`. Thirteen ORM and data-access
+  guides: `prisma`, `typeorm`, `sequelize`, `drizzle`, `sqlx`, `seaorm`, `diesel`,
+  `sqlalchemy`, `django-orm`, `jpa-hibernate`, `ef-core`, `sqlc` and `eloquent`. Every
+  template was proven by building and testing a sample against PostgreSQL. See
+  [Stack packs and ORM guides](packs.md).
+- [Modular design and secure coding](secure-coding.md) rules applied to every use case:
+  authentication by default, ownership checks, strict contracts, one error mapping and
+  end-to-end tests for 400, 401, 404, 409 and 422.
+- Twelve new [domain libraries](domain-libraries.md), and a non-functional concerns section
+  in every library.
+- Three new [subagents](subagents.md): `rup-coder`, `rup-security-reviewer` and
+  `rup-scanner`; every subagent declares its model. `rup-architect` no longer generates
+  code.
+- `nestjs-prisma` is kept as an alias. The `nestjs` pack targets NestJS 12 and the
+  `prisma` guide targets Prisma 7. The DTO template no longer accepts the owner id in the
+  request body.
 
 ### 1.0.1
 
