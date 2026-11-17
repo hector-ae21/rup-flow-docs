@@ -10,6 +10,7 @@
     "no-inline-style": "off",
     "no-raw-characters": "off",
     "no-trailing-whitespace": "off",
+    "presentation-role-style": "off",
     "prefer-native-element": "off",
     "require-sri": "off",
     "unique-landmark": "off",
