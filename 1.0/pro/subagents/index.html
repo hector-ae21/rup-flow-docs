@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="The rup-architect and rup-reviewer subagents of rup-flow Pro, and what to do in agents that have no subagents.">
+        <meta name="description" content="The five subagents of rup-flow Pro, which model each one uses, and what to do in agents that have no subagents.">
       
       
         <meta name="author" content="Hector Arrechea">
@@ -2274,6 +2274,8 @@
       
         
       
+        
+      
     
     
     
@@ -2337,7 +2339,38 @@
   <span class="md-ellipsis">
     
   
-    Stack packs
+    Stack packs and ORM guides
+  
+
+    
+  </span>
+  
+    <span class="rup-pro-tag rup-pro-tag--nav">Pro</span>
+  
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secure-coding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modular design and secure coding
   
 
     
@@ -2458,6 +2491,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#rup-scanner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rup-scanner
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rup-architect" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2469,10 +2513,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rup-coder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rup-coder
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rup-reviewer" class="md-nav__link">
     <span class="md-ellipsis">
       
         rup-reviewer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rup-security-reviewer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rup-security-reviewer
       
     </span>
   </a>
@@ -2855,6 +2921,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#rup-scanner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rup-scanner
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rup-architect" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2866,10 +2943,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rup-coder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rup-coder
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rup-reviewer" class="md-nav__link">
     <span class="md-ellipsis">
       
         rup-reviewer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rup-security-reviewer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rup-security-reviewer
       
     </span>
   </a>
@@ -2941,51 +3040,91 @@
 
 
 <h1 id="subagents">Subagents<a class="headerlink" href="#subagents" title="Permanent link">&para;</a></h1>
-<p>For clients that support subagents, Pro includes two definitions in the <code>agents</code> folder
+<p>For clients that support subagents, Pro includes five definitions in the <code>agents</code> folder
 of the skill. They split the work so that the review is not written by the one who wrote
-the documents.</p>
+the documents or the code, and so that each one reads only what its job needs.</p>
 <table>
 <thead>
 <tr>
 <th>Subagent</th>
 <th>Does</th>
-<th>Tools</th>
+<th>Writes</th>
+<th>Model</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td><code>rup-scanner</code></td>
+<td>Inventory of an existing code base with <code>path:line</code> evidence, before documenting it</td>
+<td>No</td>
+<td><code>haiku</code> (cheap and fast)</td>
+</tr>
+<tr>
 <td><code>rup-architect</code></td>
-<td>Generates and updates the models, in any direction, and generates code from reviewed models</td>
-<td>Read, write, edit, search and shell</td>
+<td>Generates and updates the models and diagrams, in any direction</td>
+<td>Documentation</td>
+<td>Inherited</td>
+</tr>
+<tr>
+<td><code>rup-coder</code></td>
+<td>Generates code and tests from reviewed models with the stack pack and ORM guide</td>
+<td>Code</td>
+<td>Inherited</td>
 </tr>
 <tr>
 <td><code>rup-reviewer</code></td>
 <td>Read-only audit of the documentation and its alignment with the code</td>
-<td>Read and search only</td>
+<td>No</td>
+<td>Inherited</td>
+</tr>
+<tr>
+<td><code>rup-security-reviewer</code></td>
+<td>Read-only security review of the code against the secure coding rules</td>
+<td>No</td>
+<td>Inherited</td>
 </tr>
 </tbody>
 </table>
+<p><code>rup-scanner</code>, <code>rup-coder</code> and <code>rup-security-reviewer</code> arrived in Pro 1.1, when code
+generation moved from <code>rup-architect</code> to <code>rup-coder</code>.</p>
+<h2 id="rup-scanner"><code>rup-scanner</code><a class="headerlink" href="#rup-scanner" title="Permanent link">&para;</a></h2>
+<p>It runs <code>scan</code> and completes the inventory with searches, reading excerpts and not whole
+files: modules, entities, routes, validations that look like rules, enumerations that look
+like states, and tests. Every item carries <code>path:line</code>, and it marks nothing as a
+requirement. It runs on a cheaper model because collecting evidence needs no design
+judgement.</p>
 <h2 id="rup-architect"><code>rup-architect</code><a class="headerlink" href="#rup-architect" title="Permanent link">&para;</a></h2>
 <p>It loads the Pro skill, reads the configuration, follows the workflow that matches the
-request (requirements to RUP, code to RUP, RUP to code or sync), marks every statement
-as confirmed, observed, assumed or open, writes only inside the documentation folder and
-the code folder, renders and checks before finishing, and ends with the files changed,
-the open questions, the checks it did not execute and the next step.</p>
+request, starts code-to-RUP work from the scanner's inventory, offers a matching domain
+library, marks every statement as confirmed, observed, assumed or open, writes only inside
+the documentation folder, renders and checks before finishing, and ends with the files
+changed, the open questions, the checks it did not execute and the next step.</p>
+<h2 id="rup-coder"><code>rup-coder</code><a class="headerlink" href="#rup-coder" title="Permanent link">&para;</a></h2>
+<p>It reads the configuration, then <code>CATALOG.md</code>, then only the pack and guide that match the
+stack. It reads only the cards and diagrams of the requested use cases, applies the
+<a href="../secure-coding/">modular design and secure coding</a> rules, shows its plan before touching
+more than five files, runs the pack's checks, and updates the code map and the traceability
+table. A decision the models do not contain becomes an open question.</p>
 <h2 id="rup-reviewer"><code>rup-reviewer</code><a class="headerlink" href="#rup-reviewer" title="Permanent link">&para;</a></h2>
-<p>It applies the audit and sync guides. It cannot write files or run commands, so it states
-which checks it could not execute. It returns a table of findings with identifier,
-severity, evidence, impact and fix, and separates format defects, consistency defects,
-missing information, drift with the code and unexecuted checks. It does not rewrite
-artifacts.</p>
+<p>It applies the audit and sync guides. It returns a table of findings with identifier,
+severity, evidence, impact and fix, separating format defects, consistency defects,
+missing information, drift with the code and unexecuted checks.</p>
+<h2 id="rup-security-reviewer"><code>rup-security-reviewer</code><a class="headerlink" href="#rup-security-reviewer" title="Permanent link">&para;</a></h2>
+<p>For each use case in scope it checks the actors allowed against the authorisation in code,
+ownership checks, input validation, raw queries and mass assignment, what responses and
+errors expose, credentials in source, module boundaries and the negative tests. Each finding
+has a severity, an OWASP category and evidence with <code>path:line</code>. It cannot run commands, so
+dependency audits and tests are reported as not verified.</p>
 <h2 id="installing-them">Installing them<a class="headerlink" href="#installing-them" title="Permanent link">&para;</a></h2>
 <p>Copy the files of the skill's <code>agents</code> folder to the agents folder of your client, for
 Claude Code <code>~/.claude/agents</code> or <code>.claude/agents</code> in a project. The definitions use the
-common frontmatter of name, description and tools.</p>
+common frontmatter of name, description, tools and model.</p>
 <h2 id="without-subagents">Without subagents<a class="headerlink" href="#without-subagents" title="Permanent link">&para;</a></h2>
-<p>An agent that has no subagents does the review as a separate pass after generating, following the audit guide, and
-keeps that pass read-only. Nothing else changes.</p>
+<p>An agent that has no subagents runs the same steps in order, and does each review as a
+separate read-only pass after generating. Nothing else changes.</p>
 <h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
-<p><a href="../sync-and-audit/">Sync and audit</a> · <a href="../rup-to-code/">RUP to code</a></p>
+<p><a href="../sync-and-audit/">Sync and audit</a> · <a href="../rup-to-code/">RUP to code</a> ·
+<a href="../packs/">Stack packs and ORM guides</a></p>
 
 
 

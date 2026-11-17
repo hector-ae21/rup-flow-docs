@@ -2272,6 +2272,8 @@
       
         
       
+        
+      
     
     
     
@@ -2335,7 +2337,38 @@
   <span class="md-ellipsis">
     
   
-    Stack packs
+    Stack packs and ORM guides
+  
+
+    
+  </span>
+  
+    <span class="rup-pro-tag rup-pro-tag--nav">Pro</span>
+  
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secure-coding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modular design and secure coding
   
 
     
@@ -2547,6 +2580,17 @@
   
     <nav class="md-nav" aria-label="Pro changelog">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#110" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.0
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#101" class="md-nav__link">
@@ -2893,6 +2937,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#110" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#101" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2976,7 +3031,7 @@
 <p>rup-flow Pro has its own version. Every Pro package contains a complete copy of the free
 skill and states which one:</p>
 <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="go">RUP version</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="go">rup-flow Pro 1.0.1 (built on rup-flow free 1.0.1)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="go">rup-flow Pro 1.1.0 (built on rup-flow free 1.0.1)</span>
 </span></code></pre></div>
 <h2 id="compatibility">Compatibility<a class="headerlink" href="#compatibility" title="Permanent link">&para;</a></h2>
 <table>
@@ -2988,6 +3043,11 @@ skill and states which one:</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>1.1.0</td>
+<td>1.0.1</td>
+<td>1.0</td>
+</tr>
 <tr>
 <td>1.0.1</td>
 <td>1.0.1</td>
@@ -3005,6 +3065,28 @@ on the line of the free version it contains. Pages and rows marked
 <span class="rup-pro-tag">Pro</span> carry a <code>since</code> version when a capability arrived
 after Pro 1.0.</p>
 <h2 id="pro-changelog">Pro changelog<a class="headerlink" href="#pro-changelog" title="Permanent link">&para;</a></h2>
+<h3 id="110">1.1.0<a class="headerlink" href="#110" title="Permanent link">&para;</a></h3>
+<p>Built on rup-flow free 1.0.1.</p>
+<ul>
+<li>A stack is now a framework pack plus an ORM guide, chosen from <code>CATALOG.md</code>. Ten
+  framework packs in seven languages: <code>nestjs</code>, <code>express</code>, <code>fastify</code>, <code>axum</code>, <code>fastapi</code>,
+  <code>django</code>, <code>spring-boot</code>, <code>aspnet-core</code>, <code>gin</code> and <code>laravel</code>. Thirteen ORM and data-access
+  guides: <code>prisma</code>, <code>typeorm</code>, <code>sequelize</code>, <code>drizzle</code>, <code>sqlx</code>, <code>seaorm</code>, <code>diesel</code>,
+  <code>sqlalchemy</code>, <code>django-orm</code>, <code>jpa-hibernate</code>, <code>ef-core</code>, <code>sqlc</code> and <code>eloquent</code>. Every
+  template was proven by building and testing a sample against PostgreSQL. See
+  <a href="../packs/">Stack packs and ORM guides</a>.</li>
+<li><a href="../secure-coding/">Modular design and secure coding</a> rules applied to every use case:
+  authentication by default, ownership checks, strict contracts, one error mapping and
+  end-to-end tests for 400, 401, 404, 409 and 422.</li>
+<li>Twelve new <a href="../domain-libraries/">domain libraries</a>, and a non-functional concerns section
+  in every library.</li>
+<li>Three new <a href="../subagents/">subagents</a>: <code>rup-coder</code>, <code>rup-security-reviewer</code> and
+  <code>rup-scanner</code>; every subagent declares its model. <code>rup-architect</code> no longer generates
+  code.</li>
+<li><code>nestjs-prisma</code> is kept as an alias. The <code>nestjs</code> pack targets NestJS 12 and the
+  <code>prisma</code> guide targets Prisma 7. The DTO template no longer accepts the owner id in the
+  request body.</li>
+</ul>
 <h3 id="101">1.0.1<a class="headerlink" href="#101" title="Permanent link">&para;</a></h3>
 <p>Built on rup-flow free 1.0.1.</p>
 <ul>

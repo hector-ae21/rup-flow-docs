@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Ready starting points for common domains in rup-flow Pro, and the lms library in detail.">
+        <meta name="description" content="Thirteen ready starting points for common domains in rup-flow Pro, what each contains, and the lms library in detail.">
       
       
         <meta name="author" content="Hector Arrechea">
@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://hector-ae21.github.io/rup-flow-docs/1.0/pro/domain-libraries/">
       
       
-        <link rel="prev" href="../packs/">
+        <link rel="prev" href="../secure-coding/">
       
       
         <link rel="next" href="../subagents/">
@@ -2274,6 +2274,8 @@
       
         
       
+        
+      
     
     
     
@@ -2337,7 +2339,38 @@
   <span class="md-ellipsis">
     
   
-    Stack packs
+    Stack packs and ORM guides
+  
+
+    
+  </span>
+  
+    <span class="rup-pro-tag rup-pro-tag--nav">Pro</span>
+  
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secure-coding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modular design and secure coding
   
 
     
@@ -2438,15 +2471,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lms" class="md-nav__link">
+  <a href="#what-a-library-contains" class="md-nav__link">
     <span class="md-ellipsis">
       
-        lms
+        What a library contains
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="lms">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-lms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: lms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example: lms">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2905,15 +2949,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lms" class="md-nav__link">
+  <a href="#what-a-library-contains" class="md-nav__link">
     <span class="md-ellipsis">
       
-        lms
+        What a library contains
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="lms">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-lms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: lms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example: lms">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3032,18 +3087,140 @@ never presents a library as your requirements.</p>
 <tr>
 <th>Library</th>
 <th>Domain</th>
+<th>Lifecycle it draws</th>
+<th>Since</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td><code>identity-access</code></td>
+<td>Users, organisations, memberships, roles and permissions, credentials, sessions, invitations, audit</td>
+<td>User account</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td><code>ecommerce</code></td>
+<td>Catalogue, cart, orders, payments, shipments, returns</td>
+<td>Order</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td><code>saas-billing</code></td>
+<td>Plans and prices, subscriptions with trials and seats, metered usage, invoices, dunning</td>
+<td>Subscription</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td><code>booking</code></td>
+<td>Bookable resources, availability, holds, reservations, cancellations, no-shows</td>
+<td>Booking</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td><code>healthcare-clinic</code></td>
+<td>Patients, practitioners, appointments, encounters, diagnoses, prescriptions, consent</td>
+<td>Appointment</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td><code>helpdesk</code></td>
+<td>Tickets, queues, SLA targets, escalation, satisfaction surveys</td>
+<td>Ticket</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td><code>crm</code></td>
+<td>Leads, accounts, contacts, opportunities through a pipeline, activities, quotes</td>
+<td>Opportunity</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td><code>inventory-warehouse</code></td>
+<td>Items, warehouses and bins, lots, receipts, picks, transfers, counts</td>
+<td>Transfer order</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td><code>hr-payroll</code></td>
+<td>Employees, contracts, leave requests and balances, payroll runs, payslips</td>
+<td>Leave request</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td><code>project-management</code></td>
+<td>Projects, tasks through a workflow, sprints, milestones, dependencies, time logs</td>
+<td>Task</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td><code>banking-wallet</code></td>
+<td>Customers with KYC, wallet accounts, transfers posted to a double-entry ledger</td>
+<td>Transfer</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td><code>food-delivery</code></td>
+<td>Restaurants, menus, delivery zones, orders through the kitchen, couriers, tracking</td>
+<td>Order</td>
+<td>1.1</td>
+</tr>
+<tr>
 <td><code>lms</code></td>
 <td>Learning platforms: courses, enrolment, activities, grading, completion</td>
+<td>Enrolment</td>
+<td>1.0</td>
 </tr>
 </tbody>
 </table>
-<p>More libraries are announced in the <a href="../versions/">Pro changelog</a>.</p>
-<h2 id="lms"><code>lms</code><a class="headerlink" href="#lms" title="Permanent link">&para;</a></h2>
-<p>The agent offers it when the objective mentions courses, enrolment, learners and
+<p><code>identity-access</code> is the base of most of the others: offer it alongside any library whose
+actors sign in.</p>
+<h2 id="what-a-library-contains">What a library contains<a class="headerlink" href="#what-a-library-contains" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>domain-model.puml</code></td>
+<td>Ranked model with attributes and multiplicities</td>
+</tr>
+<tr>
+<td><code>domain-model-simple.puml</code></td>
+<td>Entities and relations only</td>
+</tr>
+<tr>
+<td><code>entity-states.puml</code></td>
+<td>Lifecycle of the main entity; each transition names its use case</td>
+</tr>
+<tr>
+<td>Entity dictionary</td>
+<td>Level, definition and key attributes of each entity</td>
+</tr>
+<tr>
+<td>Business rules</td>
+<td>Testable rules <code>RN-xxx</code>, each to be confirmed</td>
+</tr>
+<tr>
+<td>Actors and use cases</td>
+<td>Primary and secondary actors; use cases with their package and the rules they touch, ready for <code>RUP new use-case</code></td>
+</tr>
+<tr>
+<td>Non-functional concerns</td>
+<td>Since 1.1: the regulation, privacy, concurrency and security points of the domain, such as PCI DSS for payments, health data, e-money licences or minors in education, each to be confirmed</td>
+</tr>
+<tr>
+<td>Questions to ask</td>
+<td>What the agent asks before using the library</td>
+</tr>
+</tbody>
+</table>
+<p>The Pro build checks that every library is consistent with its diagrams, and every diagram
+renders.</p>
+<h2 id="example-lms">Example: <code>lms</code><a class="headerlink" href="#example-lms" title="Permanent link">&para;</a></h2>
+<p>All libraries follow this shape. The agent offers it when the objective mentions courses, enrolment, learners and
 teachers, activities, grading or completion.</p>
 <h3 id="entities">Entities<a class="headerlink" href="#entities" title="Permanent link">&para;</a></h3>
 <table>
@@ -3129,7 +3306,7 @@ re-enrol is a question the library asks.</p>
 <li>Is completion calculated or declared by a teacher?</li>
 </ol>
 <h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
-<p><a href="../packs/">Stack packs</a> · <a href="../documentation-set/">The complete documentation set</a></p>
+<p><a href="../packs/">Stack packs and ORM guides</a> · <a href="../documentation-set/">The complete documentation set</a></p>
 
 
 
